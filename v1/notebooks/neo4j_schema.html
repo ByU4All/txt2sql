@@ -1,0 +1,155 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+            <script src="lib/bindings/utils.js"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/dist/vis-network.min.css" integrity="sha512-WgxfT5LWjfszlPHXRmBWHkV2eceiWTOBvrKCNbdgDYTHrT2AeLCGbF4sZlZw3UMN3WtL0tGUoIAKsu8mllg/XA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js" integrity="sha512-LnvoEWDFrqGHlHmDD2101OrLcbsfkrzoSpvtSQtxK3RMnRV0eOkhhBN2dXHKRrUU8p2DGRTk35n4O8nWSVe1mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
+        
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+          crossorigin="anonymous"
+        />
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+          crossorigin="anonymous"
+        ></script>
+
+
+        <center>
+          <h1></h1>
+        </center>
+        <style type="text/css">
+
+             #mynetwork {
+                 width: 100%;
+                 height: 750px;
+                 background-color: #ffffff;
+                 border: 1px solid lightgray;
+                 position: relative;
+                 float: left;
+             }
+
+             
+
+             
+
+             
+        </style>
+    </head>
+
+
+    <body>
+        <div class="card" style="width: 100%">
+            
+            
+            <div id="mynetwork" class="card-body"></div>
+        </div>
+
+        
+        
+
+        <script type="text/javascript">
+
+              // initialize global variables.
+              var edges;
+              var nodes;
+              var allNodes;
+              var allEdges;
+              var nodeColors;
+              var originalNodes;
+              var network;
+              var container;
+              var options, data;
+              var filter = {
+                  item : '',
+                  property : '',
+                  value : []
+              };
+
+              
+
+              
+
+              // This method is responsible for drawing the graph, returns the drawn network
+              function drawGraph() {
+                  var container = document.getElementById('mynetwork');
+
+                  
+
+                  // parsing and collecting nodes and edges from the python
+                  nodes = new vis.DataSet([{"color": "#ffb703", "id": "customers", "label": "customers", "shape": "dot"}, {"color": "#219ebc", "id": "customer_id", "label": "customer_id", "shape": "dot"}, {"color": "#ffb703", "id": "interactions", "label": "interactions", "shape": "dot"}, {"color": "#219ebc", "id": "outcome", "label": "outcome", "shape": "dot"}, {"color": "#ffb703", "id": "sales", "label": "sales", "shape": "dot"}, {"color": "#219ebc", "id": "total_amount", "label": "total_amount", "shape": "dot"}, {"color": "#ffb703", "id": "opportunities", "label": "opportunities", "shape": "dot"}, {"color": "#219ebc", "id": "created_on", "label": "created_on", "shape": "dot"}, {"color": "#ffb703", "id": "employees", "label": "employees", "shape": "dot"}, {"color": "#219ebc", "id": "phone", "label": "phone", "shape": "dot"}, {"color": "#219ebc", "id": "duration_minutes", "label": "duration_minutes", "shape": "dot"}, {"color": "#ffb703", "id": "invoices", "label": "invoices", "shape": "dot"}, {"color": "#219ebc", "id": "payment_received", "label": "payment_received", "shape": "dot"}, {"color": "#219ebc", "id": "sale_id", "label": "sale_id", "shape": "dot"}, {"color": "#219ebc", "id": "email", "label": "email", "shape": "dot"}, {"color": "#ffb703", "id": "suppliers", "label": "suppliers", "shape": "dot"}, {"color": "#219ebc", "id": "active_since", "label": "active_since", "shape": "dot"}, {"color": "#219ebc", "id": "signup_date", "label": "signup_date", "shape": "dot"}, {"color": "#ffb703", "id": "leads", "label": "leads", "shape": "dot"}, {"color": "#219ebc", "id": "city", "label": "city", "shape": "dot"}, {"color": "#ffb703", "id": "products", "label": "products", "shape": "dot"}, {"color": "#219ebc", "id": "category", "label": "category", "shape": "dot"}, {"color": "#219ebc", "id": "expected_close", "label": "expected_close", "shape": "dot"}, {"color": "#219ebc", "id": "last_name", "label": "last_name", "shape": "dot"}, {"color": "#219ebc", "id": "payment_terms", "label": "payment_terms", "shape": "dot"}, {"color": "#ffb703", "id": "marketing_campaigns", "label": "marketing_campaigns", "shape": "dot"}, {"color": "#219ebc", "id": "budget", "label": "budget", "shape": "dot"}, {"color": "#219ebc", "id": "supplier_name", "label": "supplier_name", "shape": "dot"}, {"color": "#219ebc", "id": "payment_method", "label": "payment_method", "shape": "dot"}, {"color": "#219ebc", "id": "lead_name", "label": "lead_name", "shape": "dot"}, {"color": "#219ebc", "id": "sale_date", "label": "sale_date", "shape": "dot"}, {"color": "#219ebc", "id": "estimated_value", "label": "estimated_value", "shape": "dot"}, {"color": "#219ebc", "id": "converted", "label": "converted", "shape": "dot"}, {"color": "#219ebc", "id": "region", "label": "region", "shape": "dot"}, {"color": "#219ebc", "id": "country", "label": "country", "shape": "dot"}, {"color": "#219ebc", "id": "product_name", "label": "product_name", "shape": "dot"}, {"color": "#219ebc", "id": "active", "label": "active", "shape": "dot"}, {"color": "#219ebc", "id": "campaign_name", "label": "campaign_name", "shape": "dot"}, {"color": "#219ebc", "id": "opportunity_id", "label": "opportunity_id", "shape": "dot"}, {"color": "#219ebc", "id": "discontinued", "label": "discontinued", "shape": "dot"}, {"color": "#219ebc", "id": "employee_id", "label": "employee_id", "shape": "dot"}, {"color": "#219ebc", "id": "is_active", "label": "is_active", "shape": "dot"}, {"color": "#219ebc", "id": "product_id", "label": "product_id", "shape": "dot"}, {"color": "#219ebc", "id": "address", "label": "address", "shape": "dot"}, {"color": "#219ebc", "id": "first_name", "label": "first_name", "shape": "dot"}, {"color": "#219ebc", "id": "assigned_to", "label": "assigned_to", "shape": "dot"}, {"color": "#219ebc", "id": "due_date", "label": "due_date", "shape": "dot"}, {"color": "#219ebc", "id": "notes", "label": "notes", "shape": "dot"}, {"color": "#219ebc", "id": "channel", "label": "channel", "shape": "dot"}, {"color": "#219ebc", "id": "start_date", "label": "start_date", "shape": "dot"}, {"color": "#219ebc", "id": "source", "label": "source", "shape": "dot"}, {"color": "#219ebc", "id": "sku", "label": "sku", "shape": "dot"}, {"color": "#219ebc", "id": "discount", "label": "discount", "shape": "dot"}, {"color": "#219ebc", "id": "supplier_id", "label": "supplier_id", "shape": "dot"}, {"color": "#219ebc", "id": "responsible_employee", "label": "responsible_employee", "shape": "dot"}, {"color": "#219ebc", "id": "interaction_date", "label": "interaction_date", "shape": "dot"}, {"color": "#219ebc", "id": "target_audience", "label": "target_audience", "shape": "dot"}, {"color": "#219ebc", "id": "reorder_level", "label": "reorder_level", "shape": "dot"}, {"color": "#219ebc", "id": "company", "label": "company", "shape": "dot"}, {"color": "#219ebc", "id": "description", "label": "description", "shape": "dot"}, {"color": "#219ebc", "id": "follow_up_required", "label": "follow_up_required", "shape": "dot"}, {"color": "#219ebc", "id": "salary", "label": "salary", "shape": "dot"}, {"color": "#219ebc", "id": "status", "label": "status", "shape": "dot"}, {"color": "#219ebc", "id": "lead_id", "label": "lead_id", "shape": "dot"}, {"color": "#219ebc", "id": "end_date", "label": "end_date", "shape": "dot"}, {"color": "#219ebc", "id": "position", "label": "position", "shape": "dot"}, {"color": "#219ebc", "id": "campaign_id", "label": "campaign_id", "shape": "dot"}, {"color": "#219ebc", "id": "won", "label": "won", "shape": "dot"}, {"color": "#219ebc", "id": "invoice_number", "label": "invoice_number", "shape": "dot"}, {"color": "#219ebc", "id": "billing_address", "label": "billing_address", "shape": "dot"}, {"color": "#219ebc", "id": "unit_price", "label": "unit_price", "shape": "dot"}, {"color": "#219ebc", "id": "stage", "label": "stage", "shape": "dot"}, {"color": "#219ebc", "id": "hire_date", "label": "hire_date", "shape": "dot"}, {"color": "#219ebc", "id": "satisfaction_score", "label": "satisfaction_score", "shape": "dot"}, {"color": "#219ebc", "id": "tax", "label": "tax", "shape": "dot"}, {"color": "#219ebc", "id": "loyalty_points", "label": "loyalty_points", "shape": "dot"}, {"color": "#219ebc", "id": "contact_person", "label": "contact_person", "shape": "dot"}, {"color": "#219ebc", "id": "quantity", "label": "quantity", "shape": "dot"}, {"color": "#219ebc", "id": "conversion_rate", "label": "conversion_rate", "shape": "dot"}, {"color": "#219ebc", "id": "issue_date", "label": "issue_date", "shape": "dot"}, {"color": "#219ebc", "id": "department", "label": "department", "shape": "dot"}, {"color": "#219ebc", "id": "interaction_type", "label": "interaction_type", "shape": "dot"}, {"color": "#219ebc", "id": "stock_quantity", "label": "stock_quantity", "shape": "dot"}, {"color": "#219ebc", "id": "rating", "label": "rating", "shape": "dot"}, {"color": "#219ebc", "id": "interaction_id", "label": "interaction_id", "shape": "dot"}, {"color": "#219ebc", "id": "invoice_id", "label": "invoice_id", "shape": "dot"}]);
+                  edges = new vis.DataSet([{"from": "customers", "title": "HAS_COLUMN", "to": "customer_id"}, {"from": "interactions", "title": "HAS_COLUMN", "to": "outcome"}, {"from": "sales", "title": "HAS_COLUMN", "to": "total_amount"}, {"from": "opportunities", "title": "HAS_COLUMN", "to": "created_on"}, {"from": "employees", "title": "HAS_COLUMN", "to": "phone"}, {"from": "interactions", "title": "HAS_COLUMN", "to": "duration_minutes"}, {"from": "invoices", "title": "HAS_COLUMN", "to": "payment_received"}, {"from": "interactions", "title": "HAS_COLUMN", "to": "customer_id"}, {"from": "invoices", "title": "HAS_COLUMN", "to": "sale_id"}, {"from": "customers", "title": "HAS_COLUMN", "to": "email"}, {"from": "suppliers", "title": "HAS_COLUMN", "to": "active_since"}, {"from": "customers", "title": "HAS_COLUMN", "to": "signup_date"}, {"from": "leads", "title": "HAS_COLUMN", "to": "phone"}, {"from": "customers", "title": "HAS_COLUMN", "to": "city"}, {"from": "products", "title": "HAS_COLUMN", "to": "category"}, {"from": "opportunities", "title": "HAS_COLUMN", "to": "expected_close"}, {"from": "customers", "title": "HAS_COLUMN", "to": "last_name"}, {"from": "suppliers", "title": "HAS_COLUMN", "to": "payment_terms"}, {"from": "marketing_campaigns", "title": "HAS_COLUMN", "to": "budget"}, {"from": "suppliers", "title": "HAS_COLUMN", "to": "supplier_name"}, {"from": "sales", "title": "HAS_COLUMN", "to": "payment_method"}, {"from": "leads", "title": "HAS_COLUMN", "to": "lead_name"}, {"from": "sales", "title": "HAS_COLUMN", "to": "sale_date"}, {"from": "opportunities", "title": "HAS_COLUMN", "to": "estimated_value"}, {"from": "leads", "title": "HAS_COLUMN", "to": "converted"}, {"from": "sales", "title": "HAS_COLUMN", "to": "region"}, {"from": "customers", "title": "HAS_COLUMN", "to": "country"}, {"from": "products", "title": "HAS_COLUMN", "to": "product_name"}, {"from": "marketing_campaigns", "title": "HAS_COLUMN", "to": "active"}, {"from": "suppliers", "title": "HAS_COLUMN", "to": "email"}, {"from": "marketing_campaigns", "title": "HAS_COLUMN", "to": "campaign_name"}, {"from": "opportunities", "title": "HAS_COLUMN", "to": "opportunity_id"}, {"from": "products", "title": "HAS_COLUMN", "to": "discontinued"}, {"from": "sales", "title": "HAS_COLUMN", "to": "employee_id"}, {"from": "employees", "title": "HAS_COLUMN", "to": "is_active"}, {"from": "opportunities", "title": "HAS_COLUMN", "to": "product_id"}, {"from": "sales", "title": "HAS_COLUMN", "to": "sale_id"}, {"from": "customers", "title": "HAS_COLUMN", "to": "address"}, {"from": "employees", "title": "HAS_COLUMN", "to": "first_name"}, {"from": "sales", "title": "HAS_COLUMN", "to": "product_id"}, {"from": "opportunities", "title": "HAS_COLUMN", "to": "assigned_to"}, {"from": "invoices", "title": "HAS_COLUMN", "to": "due_date"}, {"from": "opportunities", "title": "HAS_COLUMN", "to": "notes"}, {"from": "interactions", "title": "HAS_COLUMN", "to": "channel"}, {"from": "employees", "title": "HAS_COLUMN", "to": "employee_id"}, {"from": "marketing_campaigns", "title": "HAS_COLUMN", "to": "start_date"}, {"from": "suppliers", "title": "HAS_COLUMN", "to": "country"}, {"from": "leads", "title": "HAS_COLUMN", "to": "source"}, {"from": "sales", "title": "HAS_COLUMN", "to": "customer_id"}, {"from": "products", "title": "HAS_COLUMN", "to": "sku"}, {"from": "sales", "title": "HAS_COLUMN", "to": "discount"}, {"from": "customers", "title": "HAS_COLUMN", "to": "phone"}, {"from": "leads", "title": "HAS_COLUMN", "to": "created_on"}, {"from": "products", "title": "HAS_COLUMN", "to": "supplier_id"}, {"from": "marketing_campaigns", "title": "HAS_COLUMN", "to": "responsible_employee"}, {"from": "interactions", "title": "HAS_COLUMN", "to": "interaction_date"}, {"from": "employees", "title": "HAS_COLUMN", "to": "email"}, {"from": "marketing_campaigns", "title": "HAS_COLUMN", "to": "target_audience"}, {"from": "products", "title": "HAS_COLUMN", "to": "reorder_level"}, {"from": "invoices", "title": "HAS_COLUMN", "to": "total_amount"}, {"from": "leads", "title": "HAS_COLUMN", "to": "company"}, {"from": "products", "title": "HAS_COLUMN", "to": "description"}, {"from": "interactions", "title": "HAS_COLUMN", "to": "follow_up_required"}, {"from": "employees", "title": "HAS_COLUMN", "to": "salary"}, {"from": "invoices", "title": "HAS_COLUMN", "to": "status"}, {"from": "leads", "title": "HAS_COLUMN", "to": "lead_id"}, {"from": "marketing_campaigns", "title": "HAS_COLUMN", "to": "end_date"}, {"from": "employees", "title": "HAS_COLUMN", "to": "position"}, {"from": "opportunities", "title": "HAS_COLUMN", "to": "lead_id"}, {"from": "leads", "title": "HAS_COLUMN", "to": "email"}, {"from": "marketing_campaigns", "title": "HAS_COLUMN", "to": "campaign_id"}, {"from": "employees", "title": "HAS_COLUMN", "to": "last_name"}, {"from": "suppliers", "title": "HAS_COLUMN", "to": "address"}, {"from": "opportunities", "title": "HAS_COLUMN", "to": "won"}, {"from": "products", "title": "HAS_COLUMN", "to": "product_id"}, {"from": "interactions", "title": "HAS_COLUMN", "to": "employee_id"}, {"from": "invoices", "title": "HAS_COLUMN", "to": "invoice_number"}, {"from": "leads", "title": "HAS_COLUMN", "to": "status"}, {"from": "suppliers", "title": "HAS_COLUMN", "to": "phone"}, {"from": "invoices", "title": "HAS_COLUMN", "to": "billing_address"}, {"from": "products", "title": "HAS_COLUMN", "to": "unit_price"}, {"from": "opportunities", "title": "HAS_COLUMN", "to": "stage"}, {"from": "employees", "title": "HAS_COLUMN", "to": "hire_date"}, {"from": "interactions", "title": "HAS_COLUMN", "to": "satisfaction_score"}, {"from": "suppliers", "title": "HAS_COLUMN", "to": "supplier_id"}, {"from": "invoices", "title": "HAS_COLUMN", "to": "tax"}, {"from": "marketing_campaigns", "title": "HAS_COLUMN", "to": "channel"}, {"from": "interactions", "title": "HAS_COLUMN", "to": "notes"}, {"from": "customers", "title": "HAS_COLUMN", "to": "loyalty_points"}, {"from": "suppliers", "title": "HAS_COLUMN", "to": "contact_person"}, {"from": "sales", "title": "HAS_COLUMN", "to": "quantity"}, {"from": "marketing_campaigns", "title": "HAS_COLUMN", "to": "conversion_rate"}, {"from": "customers", "title": "HAS_COLUMN", "to": "first_name"}, {"from": "invoices", "title": "HAS_COLUMN", "to": "issue_date"}, {"from": "employees", "title": "HAS_COLUMN", "to": "department"}, {"from": "interactions", "title": "HAS_COLUMN", "to": "interaction_type"}, {"from": "products", "title": "HAS_COLUMN", "to": "stock_quantity"}, {"from": "suppliers", "title": "HAS_COLUMN", "to": "rating"}, {"from": "interactions", "title": "HAS_COLUMN", "to": "interaction_id"}, {"from": "invoices", "title": "HAS_COLUMN", "to": "invoice_id"}, {"from": "suppliers", "title": "HAS_COLUMN", "to": "city"}, {"from": "leads", "title": "HAS_COLUMN", "to": "assigned_to"}, {"from": "products", "title": "FOREIGN_KEY", "to": "suppliers"}, {"from": "leads", "title": "FOREIGN_KEY", "to": "employees"}, {"from": "opportunities", "title": "FOREIGN_KEY", "to": "leads"}, {"from": "opportunities", "title": "FOREIGN_KEY", "to": "products"}, {"from": "opportunities", "title": "FOREIGN_KEY", "to": "employees"}, {"from": "sales", "title": "FOREIGN_KEY", "to": "customers"}, {"from": "sales", "title": "FOREIGN_KEY", "to": "employees"}, {"from": "sales", "title": "FOREIGN_KEY", "to": "products"}, {"from": "invoices", "title": "FOREIGN_KEY", "to": "sales"}, {"from": "interactions", "title": "FOREIGN_KEY", "to": "customers"}, {"from": "interactions", "title": "FOREIGN_KEY", "to": "employees"}, {"from": "marketing_campaigns", "title": "FOREIGN_KEY", "to": "employees"}]);
+
+                  nodeColors = {};
+                  allNodes = nodes.get({ returnType: "Object" });
+                  for (nodeId in allNodes) {
+                    nodeColors[nodeId] = allNodes[nodeId].color;
+                  }
+                  allEdges = edges.get({ returnType: "Object" });
+                  // adding nodes and edges to the graph
+                  data = {nodes: nodes, edges: edges};
+
+                  var options = {
+    "configure": {
+        "enabled": false
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": true,
+            "type": "dynamic"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "enabled": true,
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+
+                  
+
+
+                  
+
+                  network = new vis.Network(container, data, options);
+
+                  
+
+                  
+
+                  
+
+
+                  
+
+                  return network;
+
+              }
+              drawGraph();
+        </script>
+    </body>
+</html>
