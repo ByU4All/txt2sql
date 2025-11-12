@@ -1,0 +1,12 @@
+---- init.sql
+--CREATE TABLE IF NOT EXISTS customers (
+--    customer_id SERIAL PRIMARY KEY,
+--    first_name VARCHAR(100),
+--    last_name VARCHAR(100),
+--    email VARCHAR(255) UNIQUE,
+--    phone VARCHAR(20),
+--    created_at TIMESTAMP DEFAULT NOW()
+--);
+--
+--INSERT INTO customers (first_name, last_name, email, phone)
+--VALUES ('John', 'Doe', 'john.doe@example.com', '1234567890');
