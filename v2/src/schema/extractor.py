@@ -15,16 +15,17 @@ logger = logging.getLogger(__name__)
 class ColumnInfo:
     """Information about a database column."""
     name: str
+    description: str
     data_type: str
     is_nullable: bool
-    default_value: Optional[str] = None
-    max_length: Optional[int] = None
-    numeric_precision: Optional[int] = None
-    numeric_scale: Optional[int] = None
+    default_value: str = None
+    max_length: int = None
+    numeric_precision: int = None
+    numeric_scale: int = None
     is_primary_key: bool = False
     is_foreign_key: bool = False
-    foreign_table: Optional[str] = None
-    foreign_column: Optional[str] = None
+    foreign_table: str = None
+    foreign_column: str = None
 
 
 @dataclass
@@ -37,8 +38,8 @@ class TableInfo:
     primary_keys: List[str]
     foreign_keys: List[Dict[str, str]]
     indexes: List[Dict[str, Any]]
-    row_count: Optional[int] = None
-    description: Optional[str] = None
+    row_count: int = None
+    description: str = None
 
 
 @dataclass
@@ -251,6 +252,7 @@ class PostgreSQLSchemaExtractor:
 
             columns.append(ColumnInfo(
                 name=row['column_name'],
+                description="Enter column description here",  # Placeholder for column description
                 data_type=row['data_type'],
                 is_nullable=row['is_nullable'] == 'YES',
                 default_value=row['column_default'],

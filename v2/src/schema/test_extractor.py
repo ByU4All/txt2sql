@@ -1,3 +1,4 @@
+import json
 import asyncio
 import logging
 from src.schema.extractor import extract_postgres_schema, schema_to_dict, DatabaseSchema
@@ -7,7 +8,7 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 
-async def test_schema_extraction():
+async def test_schema_extraction(save_json_path=None):
     """Test the PostgreSQL schema extractor."""
     try:
         logger.info("🚀 Starting schema extraction...")
@@ -83,6 +84,11 @@ async def test_schema_extraction():
         schema_dict = schema_to_dict(schema)
         print(f"\n📋 Schema Dictionary Keys: {list(schema_dict.keys())}")
 
+        if save_json_path:
+            with open(save_json_path, "w") as f:
+                json.dump(schema_dict, f, indent=2)
+            print(f"📝 Schema saved to {save_json_path}")
+
         return schema
 
     except Exception as e:
@@ -97,8 +103,8 @@ async def main():
     print("-" * 60)
 
     try:
-        schema: DatabaseSchema = await test_schema_extraction()
-        print(f"TYPE : {type(schema)}")
+        schema: DatabaseSchema = await test_schema_extraction(save_json_path="schema_output.json")
+
         print(f"\n🎉 Test completed! Found {schema.total_tables} tables and {schema.total_views} views.")
     except Exception as e:
         print(f"\n💥 Test failed: {e}")
