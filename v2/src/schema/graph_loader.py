@@ -6,7 +6,7 @@ from neo4j import AsyncGraphDatabase, AsyncDriver, AsyncSession
 from neo4j.exceptions import ServiceUnavailable, ClientError
 
 from .extractor import DatabaseSchema, TableInfo, ColumnInfo, extract_postgres_schema
-from ..config.settings import settings
+# from ..config.settings import settings
 
 logger = logging.getLogger(__name__)
 
@@ -18,9 +18,12 @@ class Neo4jSchemaLoader:
                  neo4j_user: Optional[str] = None,
                  neo4j_password: Optional[str] = None):
         """Initialize Neo4j connection parameters."""
-        self.neo4j_uri = neo4j_uri or settings.database.neo4j_uri
-        self.neo4j_user = neo4j_user or settings.database.neo4j_user
-        self.neo4j_password = neo4j_password or settings.database.neo4j_password
+        # self.neo4j_uri = neo4j_uri or settings.database.neo4j_uri
+        # self.neo4j_user = neo4j_user or settings.database.neo4j_user
+        # self.neo4j_password = neo4j_password or settings.database.neo4j_password
+        self.neo4j_uri = neo4j_uri
+        self.neo4j_user = neo4j_user
+        self.neo4j_password = neo4j_password
         self.driver: Optional[AsyncDriver] = None
 
     async def connect(self) -> None:
@@ -313,21 +316,19 @@ class Neo4jSchemaLoader:
 
 
 # Convenience functions
-async def load_postgres_to_neo4j(database_uri: Optional[str] = None,
-                                 postgres_schemas: Optional[List[str]] = None,
-                                 neo4j_uri: Optional[str] = None,
-                                 neo4j_user: Optional[str] = None,
-                                 neo4j_password: Optional[str] = None,
-                                 database_name: str = "postgres",
-                                 clear_existing: bool = True) -> Dict[str, Any]:
+async def load_postgres_to_neo4j(
+    postgres_schemas: Optional[List[str]] = None,
+    neo4j_uri: Optional[str] = None,
+    neo4j_user: Optional[str] = None,
+    neo4j_password: Optional[str] = None,
+    database_name: str = "postgres",
+    clear_existing: bool = True
+) -> Dict[str, Any]:
     """Complete pipeline: Extract PostgreSQL schema and load into Neo4j."""
 
     # Extract PostgreSQL schema
     logger.info("🔍 Extracting PostgreSQL schema...")
-    postgres_schema = await extract_postgres_schema(
-        database_uri=database_uri,
-        schema_names=postgres_schemas or ['public']
-    )
+    postgres_schema = await extract_postgres_schema(postgres_schemas or ['public'])
 
     # Load into Neo4j
     logger.info("📊 Loading schema into Neo4j...")

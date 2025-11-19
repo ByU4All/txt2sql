@@ -22,7 +22,7 @@ async def test_neo4j_connection():
     # Manual Neo4j connection details
     neo4j_uri = "bolt://localhost:7687"
     neo4j_user = "neo4j"
-    neo4j_password = "your_password_here"  # Replace with your Neo4j password
+    neo4j_password = "password"  # Replace with your Neo4j password
 
     loader = Neo4jSchemaLoader(neo4j_uri, neo4j_user, neo4j_password)
 
@@ -55,12 +55,11 @@ async def test_complete_pipeline():
     postgres_uri = "postgresql://luke:luke_password@localhost:5431/test_db"
     neo4j_uri = "bolt://localhost:7687"
     neo4j_user = "neo4j"
-    neo4j_password = "your_password_here"  # Replace with your Neo4j password
+    neo4j_password = "password"  # Replace with your Neo4j password
 
     try:
         # Run the complete pipeline
         summary = await load_postgres_to_neo4j(
-            database_uri=postgres_uri,
             postgres_schemas=['public'],
             neo4j_uri=neo4j_uri,
             neo4j_user=neo4j_user,
@@ -89,7 +88,7 @@ async def test_neo4j_queries():
 
     neo4j_uri = "bolt://localhost:7687"
     neo4j_user = "neo4j"
-    neo4j_password = "your_password_here"  # Replace with your Neo4j password
+    neo4j_password = "password"  # Replace with your Neo4j password
 
     loader = Neo4jSchemaLoader(neo4j_uri, neo4j_user, neo4j_password)
 
@@ -198,7 +197,7 @@ async def test_schema_summary():
         summary = await get_neo4j_schema_summary(
             neo4j_uri="bolt://localhost:7687",
             neo4j_user="neo4j",
-            neo4j_password="your_password_here"  # Replace with your Neo4j password
+            neo4j_password="password"  # Replace with your Neo4j password
         )
 
         print("📊 Current Neo4j Schema Summary:")
@@ -232,13 +231,12 @@ async def test_step_by_step():
     postgres_uri = "postgresql://luke:luke_password@localhost:5431/test_db"
     neo4j_uri = "bolt://localhost:7687"
     neo4j_user = "neo4j"
-    neo4j_password = "your_password_here"  # Replace with your Neo4j password
+    neo4j_password = "password"  # Replace with your Neo4j password
 
     try:
         # Step 1: Extract PostgreSQL schema
         print("1️⃣ Extracting PostgreSQL Schema...")
         schema = await extract_postgres_schema(
-            database_uri=postgres_uri,
             schema_names=['public']
         )
         print(f"   ✅ Found {schema.total_tables} tables, {schema.total_views} views")
