@@ -1,13 +1,12 @@
 import asyncio
 import logging
-from typing import Dict, Any
 
-from src.schema.graph_loader import (
+from src.schema.graph.graph_loader import (
     Neo4jSchemaLoader,
     load_postgres_to_neo4j,
     get_neo4j_schema_summary
 )
-from src.schema.extractor import extract_postgres_schema
+from src.schema.extraction.extractor import extract_postgres_schema
 
 # Set up logging
 logging.basicConfig(level=logging.INFO)

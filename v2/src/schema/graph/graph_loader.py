@@ -1,11 +1,10 @@
-import asyncio
 import logging
 from typing import Dict, List, Optional, Any
-from dataclasses import asdict
 from neo4j import AsyncGraphDatabase, AsyncDriver, AsyncSession
-from neo4j.exceptions import ServiceUnavailable, ClientError
+from neo4j.exceptions import ServiceUnavailable
 
-from .extractor import DatabaseSchema, TableInfo, ColumnInfo, extract_postgres_schema
+from src.schema.extraction.extractor import DatabaseSchema, TableInfo, extract_postgres_schema
+# TODO : use settings later
 # from ..config.settings import settings
 
 logger = logging.getLogger(__name__)
@@ -205,7 +204,7 @@ class Neo4jSchemaLoader:
             query = f"""
             MATCH (t:{table_label} {{name: $table_name, schema: $schema_name}})
             CREATE (c:Column {{
-                name: $column_name,
+                name: $table_name + '.' + $column_name,
                 data_type: $data_type,
                 is_nullable: $is_nullable,
                 default_value: $default_value,
@@ -269,13 +268,16 @@ class Neo4jSchemaLoader:
             query = """
             MATCH (source_table:Table {name: $source_table, schema: $source_schema})
             MATCH (target_table:Table {name: $target_table, schema: $target_schema})
-            MATCH (source_col:Column {name: $source_column})-[:HAS_COLUMN*0..1]-(source_table)
-            MATCH (target_col:Column {name: $target_column})-[:HAS_COLUMN*0..1]-(target_table)
+            
+            MATCH (source_col:Column {name: $source_table + '.' + $source_column})
+            MATCH (target_col:Column {name: $target_table + '.' + $target_column})
+            
             CREATE (source_table)-[:REFERENCES {
                 constraint_name: $constraint_name,
                 source_column: $source_column,
                 target_column: $target_column
             }]->(target_table)
+            
             CREATE (source_col)-[:FOREIGN_KEY_TO]->(target_col)
             """
 

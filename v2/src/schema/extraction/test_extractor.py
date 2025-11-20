@@ -1,7 +1,7 @@
 import json
 import asyncio
 import logging
-from src.schema.extractor import extract_postgres_schema, schema_to_dict, DatabaseSchema
+from src.schema.extraction.extractor import extract_postgres_schema, schema_to_dict, DatabaseSchema
 
 # Set up logging
 logging.basicConfig(level=logging.INFO)
@@ -103,7 +103,7 @@ async def main():
     print("-" * 60)
 
     try:
-        schema: DatabaseSchema = await test_schema_extraction(save_json_path="schema_output.json")
+        schema: DatabaseSchema = await test_schema_extraction(save_json_path="../../../data/schema_cache/schema_output.json")
 
         print(f"\n🎉 Test completed! Found {schema.total_tables} tables and {schema.total_views} views.")
     except Exception as e:

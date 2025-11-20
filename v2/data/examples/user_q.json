@@ -1,0 +1,9 @@
+{
+  "id": "example:1",
+  "text": "How much did customer 101 spend in 2023?",
+  "metadata": {
+    "type": "example",
+    "sql": "SELECT SUM(amount) FROM sales WHERE customer_id=101 AND sale_date BETWEEN '2023-01-01' AND '2023-12-31';",
+    "tags": ["aggregation","customer"]
+  }
+}

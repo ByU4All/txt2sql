@@ -5,6 +5,7 @@ from dataclasses import dataclass, asdict
 import asyncpg
 from asyncpg import Connection, Pool
 
+# TODO : use settings later
 # from ..config.settings import settings
 
 
@@ -38,8 +39,8 @@ class TableInfo:
     primary_keys: List[str]
     foreign_keys: List[Dict[str, str]]
     indexes: List[Dict[str, Any]]
-    row_count: int = None
-    description: str = None
+    row_count: int | None = None
+    description: str | None = None
 
 
 @dataclass
