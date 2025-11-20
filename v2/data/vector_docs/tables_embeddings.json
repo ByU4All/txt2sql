@@ -12,23 +12,18 @@
         "first_name",
         "last_name",
         "email",
-        "phone",
-        "address",
-        "city",
-        "country",
-        "signup_date",
-        "loyalty_points"
+        "created_on"
       ],
       "primary_keys": [
         "customer_id"
       ],
       "foreign_keys": [],
-      "generated_at": "2025-11-19T11:29:49.285967"
+      "generated_at": "2025-11-20T11:31:19.817153"
     }
   },
   {
     "id": "table:public.employees",
-    "text": "employees: stores records related to employee_id, first_name, last_name, email, and other associated fields.",
+    "text": "employees: stores records related to employee_id, first_name, last_name, department, and other associated fields.",
     "metadata": {
       "type": "table",
       "schema": "public",
@@ -38,19 +33,14 @@
         "employee_id",
         "first_name",
         "last_name",
-        "email",
-        "phone",
         "department",
-        "position",
-        "hire_date",
-        "salary",
-        "is_active"
+        "hired_on"
       ],
       "primary_keys": [
         "employee_id"
       ],
       "foreign_keys": [],
-      "generated_at": "2025-11-19T11:29:49.286067"
+      "generated_at": "2025-11-20T11:31:19.817216"
     }
   },
   {
@@ -66,13 +56,7 @@
         "customer_id",
         "employee_id",
         "interaction_type",
-        "channel",
-        "interaction_date",
-        "notes",
-        "follow_up_required",
-        "satisfaction_score",
-        "duration_minutes",
-        "outcome"
+        "interaction_date"
       ],
       "primary_keys": [
         "interaction_id"
@@ -93,47 +77,12 @@
           "foreign_column_name": "employee_id"
         }
       ],
-      "generated_at": "2025-11-19T11:29:49.286130"
-    }
-  },
-  {
-    "id": "table:public.invoices",
-    "text": "invoices: stores records related to invoice_id, sale_id, invoice_number, issue_date, and other associated fields.",
-    "metadata": {
-      "type": "table",
-      "schema": "public",
-      "table_name": "invoices",
-      "full_name": "public.invoices",
-      "column_names": [
-        "invoice_id",
-        "sale_id",
-        "invoice_number",
-        "issue_date",
-        "due_date",
-        "total_amount",
-        "tax",
-        "status",
-        "billing_address",
-        "payment_received"
-      ],
-      "primary_keys": [
-        "invoice_id"
-      ],
-      "foreign_keys": [
-        {
-          "constraint_name": "invoices_sale_id_fkey",
-          "column_name": "sale_id",
-          "foreign_table_schema": "public",
-          "foreign_table_name": "sales",
-          "foreign_column_name": "sale_id"
-        }
-      ],
-      "generated_at": "2025-11-19T11:29:49.286194"
+      "generated_at": "2025-11-20T11:31:19.817261"
     }
   },
   {
     "id": "table:public.leads",
-    "text": "leads: stores records related to lead_id, lead_name, company, email, and other associated fields.",
+    "text": "leads: stores records related to lead_id, lead_name, email, source, and other associated fields.",
     "metadata": {
       "type": "table",
       "schema": "public",
@@ -142,152 +91,20 @@
       "column_names": [
         "lead_id",
         "lead_name",
-        "company",
         "email",
-        "phone",
-        "status",
         "source",
-        "assigned_to",
-        "created_on",
-        "converted"
+        "created_on"
       ],
       "primary_keys": [
         "lead_id"
       ],
-      "foreign_keys": [
-        {
-          "constraint_name": "leads_assigned_to_fkey",
-          "column_name": "assigned_to",
-          "foreign_table_schema": "public",
-          "foreign_table_name": "employees",
-          "foreign_column_name": "employee_id"
-        }
-      ],
-      "generated_at": "2025-11-19T11:29:49.286527"
-    }
-  },
-  {
-    "id": "table:public.marketing_campaigns",
-    "text": "marketing_campaigns: stores records related to campaign_id, campaign_name, start_date, end_date, and other associated fields.",
-    "metadata": {
-      "type": "table",
-      "schema": "public",
-      "table_name": "marketing_campaigns",
-      "full_name": "public.marketing_campaigns",
-      "column_names": [
-        "campaign_id",
-        "campaign_name",
-        "start_date",
-        "end_date",
-        "budget",
-        "channel",
-        "target_audience",
-        "conversion_rate",
-        "responsible_employee",
-        "active"
-      ],
-      "primary_keys": [
-        "campaign_id"
-      ],
-      "foreign_keys": [
-        {
-          "constraint_name": "marketing_campaigns_responsible_employee_fkey",
-          "column_name": "responsible_employee",
-          "foreign_table_schema": "public",
-          "foreign_table_name": "employees",
-          "foreign_column_name": "employee_id"
-        }
-      ],
-      "generated_at": "2025-11-19T11:29:49.286589"
-    }
-  },
-  {
-    "id": "table:public.opportunities",
-    "text": "opportunities: stores records related to opportunity_id, lead_id, product_id, estimated_value, and other associated fields.",
-    "metadata": {
-      "type": "table",
-      "schema": "public",
-      "table_name": "opportunities",
-      "full_name": "public.opportunities",
-      "column_names": [
-        "opportunity_id",
-        "lead_id",
-        "product_id",
-        "estimated_value",
-        "stage",
-        "expected_close",
-        "assigned_to",
-        "created_on",
-        "notes",
-        "won"
-      ],
-      "primary_keys": [
-        "opportunity_id"
-      ],
-      "foreign_keys": [
-        {
-          "constraint_name": "opportunities_lead_id_fkey",
-          "column_name": "lead_id",
-          "foreign_table_schema": "public",
-          "foreign_table_name": "leads",
-          "foreign_column_name": "lead_id"
-        },
-        {
-          "constraint_name": "opportunities_product_id_fkey",
-          "column_name": "product_id",
-          "foreign_table_schema": "public",
-          "foreign_table_name": "products",
-          "foreign_column_name": "product_id"
-        },
-        {
-          "constraint_name": "opportunities_assigned_to_fkey",
-          "column_name": "assigned_to",
-          "foreign_table_schema": "public",
-          "foreign_table_name": "employees",
-          "foreign_column_name": "employee_id"
-        }
-      ],
-      "generated_at": "2025-11-19T11:29:49.286644"
-    }
-  },
-  {
-    "id": "table:public.products",
-    "text": "products: stores records related to product_id, product_name, sku, description, and other associated fields.",
-    "metadata": {
-      "type": "table",
-      "schema": "public",
-      "table_name": "products",
-      "full_name": "public.products",
-      "column_names": [
-        "product_id",
-        "product_name",
-        "sku",
-        "description",
-        "category",
-        "unit_price",
-        "supplier_id",
-        "stock_quantity",
-        "reorder_level",
-        "discontinued"
-      ],
-      "primary_keys": [
-        "product_id"
-      ],
-      "foreign_keys": [
-        {
-          "constraint_name": "products_supplier_id_fkey",
-          "column_name": "supplier_id",
-          "foreign_table_schema": "public",
-          "foreign_table_name": "suppliers",
-          "foreign_column_name": "supplier_id"
-        }
-      ],
-      "generated_at": "2025-11-19T11:29:49.286697"
+      "foreign_keys": [],
+      "generated_at": "2025-11-20T11:31:19.817306"
     }
   },
   {
     "id": "table:public.sales",
-    "text": "sales: stores records related to sale_id, customer_id, employee_id, product_id, and other associated fields.",
+    "text": "sales: stores records related to sale_id, customer_id, employee_id, total_amount, and other associated fields.",
     "metadata": {
       "type": "table",
       "schema": "public",
@@ -297,13 +114,8 @@
         "sale_id",
         "customer_id",
         "employee_id",
-        "product_id",
-        "quantity",
         "total_amount",
-        "sale_date",
-        "payment_method",
-        "region",
-        "discount"
+        "sale_date"
       ],
       "primary_keys": [
         "sale_id"
@@ -322,44 +134,9 @@
           "foreign_table_schema": "public",
           "foreign_table_name": "employees",
           "foreign_column_name": "employee_id"
-        },
-        {
-          "constraint_name": "sales_product_id_fkey",
-          "column_name": "product_id",
-          "foreign_table_schema": "public",
-          "foreign_table_name": "products",
-          "foreign_column_name": "product_id"
         }
       ],
-      "generated_at": "2025-11-19T11:29:49.286751"
-    }
-  },
-  {
-    "id": "table:public.suppliers",
-    "text": "suppliers: stores records related to supplier_id, supplier_name, contact_person, phone, and other associated fields.",
-    "metadata": {
-      "type": "table",
-      "schema": "public",
-      "table_name": "suppliers",
-      "full_name": "public.suppliers",
-      "column_names": [
-        "supplier_id",
-        "supplier_name",
-        "contact_person",
-        "phone",
-        "email",
-        "address",
-        "city",
-        "country",
-        "rating",
-        "payment_terms",
-        "active_since"
-      ],
-      "primary_keys": [
-        "supplier_id"
-      ],
-      "foreign_keys": [],
-      "generated_at": "2025-11-19T11:29:49.286800"
+      "generated_at": "2025-11-20T11:31:19.817341"
     }
   }
 ]

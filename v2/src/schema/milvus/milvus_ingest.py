@@ -16,10 +16,12 @@ import os
 # -----------------------------
 MILVUS_HOST = "localhost"
 MILVUS_PORT = "19530"
+# MILVUS_PASSOWRD = "password"
+# MILVUS_USR = "luke"
 
-TABLES_PATH = "/data/vector_docs/tables_embeddings.json"
-COLUMNS_PATH = "/data/vector_docs/columns_embeddings.json"
-CELLS_PATH = "/data/vector_docs/cells_candidates.json"
+TABLES_PATH = "/home/prakhar/LUKE_DEV/prakhar-luke-dev/txt2sql/v2/data/vector_docs/tables_embeddings.json"
+COLUMNS_PATH = "/home/prakhar/LUKE_DEV/prakhar-luke-dev/txt2sql/v2/data/vector_docs/columns_embeddings.json"
+CELLS_PATH = "/home/prakhar/LUKE_DEV/prakhar-luke-dev/txt2sql/v2/data/vector_docs/cells_candidates.json"
 
 OLLAMA_HOST = "http://localhost:11434"
 EMBED_MODEL = "embeddinggemma:latest"
@@ -27,7 +29,7 @@ EMBED_MODEL = "embeddinggemma:latest"
 # --------------------------------------------------------
 # Connect to Milvus
 # --------------------------------------------------------
-connections.connect("default", host=MILVUS_HOST, port=MILVUS_PORT)
+connections.connect("default", host=MILVUS_HOST, port=MILVUS_PORT) #, user=MILVUS_USR, password=MILVUS_PASSOWRD)
 print("✓ Connected to Milvus")
 
 

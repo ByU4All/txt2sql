@@ -3,7 +3,7 @@ from pathlib import Path
 from datetime import datetime
 
 INPUT = "/home/prakhar/LUKE_DEV/prakhar-luke-dev/txt2sql/v2/data/schema_cache/schema_output.json"
-OUT_DIR = "/data/vector_docs"
+OUT_DIR = "/home/prakhar/LUKE_DEV/prakhar-luke-dev/txt2sql/v2/data/vector_docs"
 Path(OUT_DIR).mkdir(parents=True, exist_ok=True)
 
 # -------------------------------------------------------------------

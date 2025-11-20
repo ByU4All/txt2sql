@@ -27,7 +27,7 @@ def get_ollama_embedding(text: str, model: str = "embeddinggemma:latest") -> lis
         return None
 
 
-def test_hybrid_retriever():
+def test_hybrid_retriever(_query_text = "Show each customer along with their total number of sales."):
     """Test the HybridRetriever functionality"""
 
     retriever = None
@@ -59,7 +59,7 @@ def test_hybrid_retriever():
         logger.info("🧪 Testing hybrid retrieval with available collections...")
 
         # Test query
-        query_text = "Show me all customers with their orders from last month"
+        query_text = _query_text
         logger.info(f"\n=== Testing query: '{query_text}' ===")
 
         # Generate embedding
@@ -80,12 +80,15 @@ def test_hybrid_retriever():
             query_embedding=query_embedding,
             top_k_tables=5,
             top_n_columns=10,
-            top_m_values=15
+            top_m_values=5
         )
 
         # Display formatted result
         import json
+        print("=== USER QUERY ===")
+        print(_query_text)
         logger.info("=== RETRIEVAL RESULT ===")
+        print("=== RETRIEVAL RESULT ===")
         print(json.dumps(result, indent=2))
 
         logger.info("\n=== SUCCESS ===")
@@ -150,6 +153,6 @@ if __name__ == "__main__":
     if not check_prerequisites():
         logger.error("❌ Prerequisites not met. Please start required services.")
         sys.exit(1)
-
-    success = test_hybrid_retriever()
+    user_query = "How many interactions each employee had with each customer?"
+    success = test_hybrid_retriever(_query_text = user_query)
     sys.exit(0 if success else 1)

@@ -66,7 +66,7 @@ class PostgreSQLSchemaExtractor:
                 host="localhost",
                 port="5431",
                 user="luke",
-                password="luke_password",
+                password="password",
                 database="test_db",
                 min_size=1,
                 max_size=5

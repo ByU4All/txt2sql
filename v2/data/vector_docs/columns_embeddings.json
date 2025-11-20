@@ -1,7 +1,7 @@
 [
   {
     "id": "column:public.customers.customer_id",
-    "text": "customers.customer_id (identifier): unique ID referencing another entity.",
+    "text": "customers.customer_id (identifier): 'Unique ID automatically assigned to each customer. This serves as the primary identifier in all related CRM workflows.'",
     "metadata": {
       "type": "column",
       "schema": "public",
@@ -18,7 +18,7 @@
   },
   {
     "id": "column:public.customers.first_name",
-    "text": "customers.first_name (string): name field.",
+    "text": "customers.first_name (string): 'Customer''s given name used for personalization and identification in communication and reporting.'",
     "metadata": {
       "type": "column",
       "schema": "public",
@@ -35,7 +35,7 @@
   },
   {
     "id": "column:public.customers.last_name",
-    "text": "customers.last_name (string): name field.",
+    "text": "customers.last_name (string): 'Family name of the customer. Used for matching, personalization, and formal documentation.'",
     "metadata": {
       "type": "column",
       "schema": "public",
@@ -52,7 +52,7 @@
   },
   {
     "id": "column:public.customers.email",
-    "text": "customers.email (character varying): attribute of customers.",
+    "text": "customers.email (character varying): 'Primary email address used for notifications, receipts, and identifying duplicate accounts.'",
     "metadata": {
       "type": "column",
       "schema": "public",
@@ -68,15 +68,15 @@
     }
   },
   {
-    "id": "column:public.customers.phone",
-    "text": "customers.phone (character varying): attribute of customers.",
+    "id": "column:public.customers.created_on",
+    "text": "customers.created_on (date): 'Date when the customer profile was created. Helps track account age, lifecycle stage, and churn metrics.'",
     "metadata": {
       "type": "column",
       "schema": "public",
       "table_name": "customers",
-      "column_name": "phone",
-      "full_name": "public.customers.phone",
-      "data_type": "character varying",
+      "column_name": "created_on",
+      "full_name": "public.customers.created_on",
+      "data_type": "date",
       "is_primary_key": false,
       "is_foreign_key": false,
       "foreign_table": null,
@@ -85,93 +85,8 @@
     }
   },
   {
-    "id": "column:public.customers.address",
-    "text": "customers.address (character varying): attribute of customers.",
-    "metadata": {
-      "type": "column",
-      "schema": "public",
-      "table_name": "customers",
-      "column_name": "address",
-      "full_name": "public.customers.address",
-      "data_type": "character varying",
-      "is_primary_key": false,
-      "is_foreign_key": false,
-      "foreign_table": null,
-      "foreign_column": null,
-      "ordinal_position": 6
-    }
-  },
-  {
-    "id": "column:public.customers.city",
-    "text": "customers.city (character varying): attribute of customers.",
-    "metadata": {
-      "type": "column",
-      "schema": "public",
-      "table_name": "customers",
-      "column_name": "city",
-      "full_name": "public.customers.city",
-      "data_type": "character varying",
-      "is_primary_key": false,
-      "is_foreign_key": false,
-      "foreign_table": null,
-      "foreign_column": null,
-      "ordinal_position": 7
-    }
-  },
-  {
-    "id": "column:public.customers.country",
-    "text": "customers.country (character varying): attribute of customers.",
-    "metadata": {
-      "type": "column",
-      "schema": "public",
-      "table_name": "customers",
-      "column_name": "country",
-      "full_name": "public.customers.country",
-      "data_type": "character varying",
-      "is_primary_key": false,
-      "is_foreign_key": false,
-      "foreign_table": null,
-      "foreign_column": null,
-      "ordinal_position": 8
-    }
-  },
-  {
-    "id": "column:public.customers.signup_date",
-    "text": "customers.signup_date (date): date associated with the record.",
-    "metadata": {
-      "type": "column",
-      "schema": "public",
-      "table_name": "customers",
-      "column_name": "signup_date",
-      "full_name": "public.customers.signup_date",
-      "data_type": "date",
-      "is_primary_key": false,
-      "is_foreign_key": false,
-      "foreign_table": null,
-      "foreign_column": null,
-      "ordinal_position": 9
-    }
-  },
-  {
-    "id": "column:public.customers.loyalty_points",
-    "text": "customers.loyalty_points (integer): attribute of customers.",
-    "metadata": {
-      "type": "column",
-      "schema": "public",
-      "table_name": "customers",
-      "column_name": "loyalty_points",
-      "full_name": "public.customers.loyalty_points",
-      "data_type": "integer",
-      "is_primary_key": false,
-      "is_foreign_key": false,
-      "foreign_table": null,
-      "foreign_column": null,
-      "ordinal_position": 10
-    }
-  },
-  {
     "id": "column:public.employees.employee_id",
-    "text": "employees.employee_id (identifier): unique ID referencing another entity.",
+    "text": "employees.employee_id (identifier): 'Unique identifier assigned to each employee. Used to track ownership of leads, sales, and interactions.'",
     "metadata": {
       "type": "column",
       "schema": "public",
@@ -188,7 +103,7 @@
   },
   {
     "id": "column:public.employees.first_name",
-    "text": "employees.first_name (string): name field.",
+    "text": "employees.first_name (string): 'Employee’s first name. Appears in reports, dashboards, and communication logs.'",
     "metadata": {
       "type": "column",
       "schema": "public",
@@ -205,7 +120,7 @@
   },
   {
     "id": "column:public.employees.last_name",
-    "text": "employees.last_name (string): name field.",
+    "text": "employees.last_name (string): 'Employee’s last name. Useful for hierarchical mapping and formal documentation.'",
     "metadata": {
       "type": "column",
       "schema": "public",
@@ -221,42 +136,8 @@
     }
   },
   {
-    "id": "column:public.employees.email",
-    "text": "employees.email (character varying): attribute of employees.",
-    "metadata": {
-      "type": "column",
-      "schema": "public",
-      "table_name": "employees",
-      "column_name": "email",
-      "full_name": "public.employees.email",
-      "data_type": "character varying",
-      "is_primary_key": false,
-      "is_foreign_key": false,
-      "foreign_table": null,
-      "foreign_column": null,
-      "ordinal_position": 4
-    }
-  },
-  {
-    "id": "column:public.employees.phone",
-    "text": "employees.phone (character varying): attribute of employees.",
-    "metadata": {
-      "type": "column",
-      "schema": "public",
-      "table_name": "employees",
-      "column_name": "phone",
-      "full_name": "public.employees.phone",
-      "data_type": "character varying",
-      "is_primary_key": false,
-      "is_foreign_key": false,
-      "foreign_table": null,
-      "foreign_column": null,
-      "ordinal_position": 5
-    }
-  },
-  {
     "id": "column:public.employees.department",
-    "text": "employees.department (character varying): attribute of employees.",
+    "text": "employees.department (character varying): 'Department where the employee works (e.g., Sales, Support). Helps categorize workload and team structure.'",
     "metadata": {
       "type": "column",
       "schema": "public",
@@ -268,80 +149,29 @@
       "is_foreign_key": false,
       "foreign_table": null,
       "foreign_column": null,
-      "ordinal_position": 6
+      "ordinal_position": 4
     }
   },
   {
-    "id": "column:public.employees.position",
-    "text": "employees.position (character varying): attribute of employees.",
+    "id": "column:public.employees.hired_on",
+    "text": "employees.hired_on (date): 'Date when the employee joined the company. Important for tenure analytics and access provisioning.",
     "metadata": {
       "type": "column",
       "schema": "public",
       "table_name": "employees",
-      "column_name": "position",
-      "full_name": "public.employees.position",
-      "data_type": "character varying",
-      "is_primary_key": false,
-      "is_foreign_key": false,
-      "foreign_table": null,
-      "foreign_column": null,
-      "ordinal_position": 7
-    }
-  },
-  {
-    "id": "column:public.employees.hire_date",
-    "text": "employees.hire_date (date): date associated with the record.",
-    "metadata": {
-      "type": "column",
-      "schema": "public",
-      "table_name": "employees",
-      "column_name": "hire_date",
-      "full_name": "public.employees.hire_date",
+      "column_name": "hired_on",
+      "full_name": "public.employees.hired_on",
       "data_type": "date",
       "is_primary_key": false,
       "is_foreign_key": false,
       "foreign_table": null,
       "foreign_column": null,
-      "ordinal_position": 8
-    }
-  },
-  {
-    "id": "column:public.employees.salary",
-    "text": "employees.salary (numeric): attribute of employees.",
-    "metadata": {
-      "type": "column",
-      "schema": "public",
-      "table_name": "employees",
-      "column_name": "salary",
-      "full_name": "public.employees.salary",
-      "data_type": "numeric",
-      "is_primary_key": false,
-      "is_foreign_key": false,
-      "foreign_table": null,
-      "foreign_column": null,
-      "ordinal_position": 9
-    }
-  },
-  {
-    "id": "column:public.employees.is_active",
-    "text": "employees.is_active (boolean): attribute of employees.",
-    "metadata": {
-      "type": "column",
-      "schema": "public",
-      "table_name": "employees",
-      "column_name": "is_active",
-      "full_name": "public.employees.is_active",
-      "data_type": "boolean",
-      "is_primary_key": false,
-      "is_foreign_key": false,
-      "foreign_table": null,
-      "foreign_column": null,
-      "ordinal_position": 10
+      "ordinal_position": 5
     }
   },
   {
     "id": "column:public.interactions.interaction_id",
-    "text": "interactions.interaction_id (identifier): unique ID referencing another entity.",
+    "text": "interactions.interaction_id (identifier): 'Unique identifier assigned to each interaction event. Essential for auditing and reference in CRM history.'",
     "metadata": {
       "type": "column",
       "schema": "public",
@@ -358,7 +188,7 @@
   },
   {
     "id": "column:public.interactions.customer_id",
-    "text": "interactions.customer_id (identifier): unique ID referencing another entity.",
+    "text": "interactions.customer_id (identifier): 'Customer involved in the interaction. Links back to the main customer profile for full engagement context.'",
     "metadata": {
       "type": "column",
       "schema": "public",
@@ -375,7 +205,7 @@
   },
   {
     "id": "column:public.interactions.employee_id",
-    "text": "interactions.employee_id (identifier): unique ID referencing another entity.",
+    "text": "interactions.employee_id (identifier): 'Employee who handled the interaction. Useful for performance evaluation and workflow ownership.'",
     "metadata": {
       "type": "column",
       "schema": "public",
@@ -392,7 +222,7 @@
   },
   {
     "id": "column:public.interactions.interaction_type",
-    "text": "interactions.interaction_type (character varying): attribute of interactions.",
+    "text": "interactions.interaction_type (character varying): 'Classifies the type of interaction, such as Support, Inquiry, Complaint, or Follow-up. Helps group communication patterns.'",
     "metadata": {
       "type": "column",
       "schema": "public",
@@ -408,25 +238,8 @@
     }
   },
   {
-    "id": "column:public.interactions.channel",
-    "text": "interactions.channel (character varying): attribute of interactions.",
-    "metadata": {
-      "type": "column",
-      "schema": "public",
-      "table_name": "interactions",
-      "column_name": "channel",
-      "full_name": "public.interactions.channel",
-      "data_type": "character varying",
-      "is_primary_key": false,
-      "is_foreign_key": false,
-      "foreign_table": null,
-      "foreign_column": null,
-      "ordinal_position": 5
-    }
-  },
-  {
     "id": "column:public.interactions.interaction_date",
-    "text": "interactions.interaction_date (date): date associated with the record.",
+    "text": "interactions.interaction_date (date): 'Date on which the interaction occurred. Used for sequencing events and understanding customer timelines.'",
     "metadata": {
       "type": "column",
       "schema": "public",
@@ -438,267 +251,12 @@
       "is_foreign_key": false,
       "foreign_table": null,
       "foreign_column": null,
-      "ordinal_position": 6
-    }
-  },
-  {
-    "id": "column:public.interactions.notes",
-    "text": "interactions.notes (character varying): attribute of interactions.",
-    "metadata": {
-      "type": "column",
-      "schema": "public",
-      "table_name": "interactions",
-      "column_name": "notes",
-      "full_name": "public.interactions.notes",
-      "data_type": "character varying",
-      "is_primary_key": false,
-      "is_foreign_key": false,
-      "foreign_table": null,
-      "foreign_column": null,
-      "ordinal_position": 7
-    }
-  },
-  {
-    "id": "column:public.interactions.follow_up_required",
-    "text": "interactions.follow_up_required (boolean): attribute of interactions.",
-    "metadata": {
-      "type": "column",
-      "schema": "public",
-      "table_name": "interactions",
-      "column_name": "follow_up_required",
-      "full_name": "public.interactions.follow_up_required",
-      "data_type": "boolean",
-      "is_primary_key": false,
-      "is_foreign_key": false,
-      "foreign_table": null,
-      "foreign_column": null,
-      "ordinal_position": 8
-    }
-  },
-  {
-    "id": "column:public.interactions.satisfaction_score",
-    "text": "interactions.satisfaction_score (integer): score or rating value.",
-    "metadata": {
-      "type": "column",
-      "schema": "public",
-      "table_name": "interactions",
-      "column_name": "satisfaction_score",
-      "full_name": "public.interactions.satisfaction_score",
-      "data_type": "integer",
-      "is_primary_key": false,
-      "is_foreign_key": false,
-      "foreign_table": null,
-      "foreign_column": null,
-      "ordinal_position": 9
-    }
-  },
-  {
-    "id": "column:public.interactions.duration_minutes",
-    "text": "interactions.duration_minutes (integer): time duration in minutes.",
-    "metadata": {
-      "type": "column",
-      "schema": "public",
-      "table_name": "interactions",
-      "column_name": "duration_minutes",
-      "full_name": "public.interactions.duration_minutes",
-      "data_type": "integer",
-      "is_primary_key": false,
-      "is_foreign_key": false,
-      "foreign_table": null,
-      "foreign_column": null,
-      "ordinal_position": 10
-    }
-  },
-  {
-    "id": "column:public.interactions.outcome",
-    "text": "interactions.outcome (character varying): attribute of interactions.",
-    "metadata": {
-      "type": "column",
-      "schema": "public",
-      "table_name": "interactions",
-      "column_name": "outcome",
-      "full_name": "public.interactions.outcome",
-      "data_type": "character varying",
-      "is_primary_key": false,
-      "is_foreign_key": false,
-      "foreign_table": null,
-      "foreign_column": null,
-      "ordinal_position": 11
-    }
-  },
-  {
-    "id": "column:public.invoices.invoice_id",
-    "text": "invoices.invoice_id (identifier): unique ID referencing another entity.",
-    "metadata": {
-      "type": "column",
-      "schema": "public",
-      "table_name": "invoices",
-      "column_name": "invoice_id",
-      "full_name": "public.invoices.invoice_id",
-      "data_type": "integer",
-      "is_primary_key": true,
-      "is_foreign_key": false,
-      "foreign_table": null,
-      "foreign_column": null,
-      "ordinal_position": 1
-    }
-  },
-  {
-    "id": "column:public.invoices.sale_id",
-    "text": "invoices.sale_id (identifier): unique ID referencing another entity.",
-    "metadata": {
-      "type": "column",
-      "schema": "public",
-      "table_name": "invoices",
-      "column_name": "sale_id",
-      "full_name": "public.invoices.sale_id",
-      "data_type": "integer",
-      "is_primary_key": false,
-      "is_foreign_key": true,
-      "foreign_table": "public.sales",
-      "foreign_column": "sale_id",
-      "ordinal_position": 2
-    }
-  },
-  {
-    "id": "column:public.invoices.invoice_number",
-    "text": "invoices.invoice_number (character varying): attribute of invoices.",
-    "metadata": {
-      "type": "column",
-      "schema": "public",
-      "table_name": "invoices",
-      "column_name": "invoice_number",
-      "full_name": "public.invoices.invoice_number",
-      "data_type": "character varying",
-      "is_primary_key": false,
-      "is_foreign_key": false,
-      "foreign_table": null,
-      "foreign_column": null,
-      "ordinal_position": 3
-    }
-  },
-  {
-    "id": "column:public.invoices.issue_date",
-    "text": "invoices.issue_date (date): date associated with the record.",
-    "metadata": {
-      "type": "column",
-      "schema": "public",
-      "table_name": "invoices",
-      "column_name": "issue_date",
-      "full_name": "public.invoices.issue_date",
-      "data_type": "date",
-      "is_primary_key": false,
-      "is_foreign_key": false,
-      "foreign_table": null,
-      "foreign_column": null,
-      "ordinal_position": 4
-    }
-  },
-  {
-    "id": "column:public.invoices.due_date",
-    "text": "invoices.due_date (date): date associated with the record.",
-    "metadata": {
-      "type": "column",
-      "schema": "public",
-      "table_name": "invoices",
-      "column_name": "due_date",
-      "full_name": "public.invoices.due_date",
-      "data_type": "date",
-      "is_primary_key": false,
-      "is_foreign_key": false,
-      "foreign_table": null,
-      "foreign_column": null,
       "ordinal_position": 5
     }
   },
   {
-    "id": "column:public.invoices.total_amount",
-    "text": "invoices.total_amount (numeric): numeric or monetary amount.",
-    "metadata": {
-      "type": "column",
-      "schema": "public",
-      "table_name": "invoices",
-      "column_name": "total_amount",
-      "full_name": "public.invoices.total_amount",
-      "data_type": "numeric",
-      "is_primary_key": false,
-      "is_foreign_key": false,
-      "foreign_table": null,
-      "foreign_column": null,
-      "ordinal_position": 6
-    }
-  },
-  {
-    "id": "column:public.invoices.tax",
-    "text": "invoices.tax (numeric): attribute of invoices.",
-    "metadata": {
-      "type": "column",
-      "schema": "public",
-      "table_name": "invoices",
-      "column_name": "tax",
-      "full_name": "public.invoices.tax",
-      "data_type": "numeric",
-      "is_primary_key": false,
-      "is_foreign_key": false,
-      "foreign_table": null,
-      "foreign_column": null,
-      "ordinal_position": 7
-    }
-  },
-  {
-    "id": "column:public.invoices.status",
-    "text": "invoices.status (string): status field.",
-    "metadata": {
-      "type": "column",
-      "schema": "public",
-      "table_name": "invoices",
-      "column_name": "status",
-      "full_name": "public.invoices.status",
-      "data_type": "character varying",
-      "is_primary_key": false,
-      "is_foreign_key": false,
-      "foreign_table": null,
-      "foreign_column": null,
-      "ordinal_position": 8
-    }
-  },
-  {
-    "id": "column:public.invoices.billing_address",
-    "text": "invoices.billing_address (character varying): attribute of invoices.",
-    "metadata": {
-      "type": "column",
-      "schema": "public",
-      "table_name": "invoices",
-      "column_name": "billing_address",
-      "full_name": "public.invoices.billing_address",
-      "data_type": "character varying",
-      "is_primary_key": false,
-      "is_foreign_key": false,
-      "foreign_table": null,
-      "foreign_column": null,
-      "ordinal_position": 9
-    }
-  },
-  {
-    "id": "column:public.invoices.payment_received",
-    "text": "invoices.payment_received (boolean): attribute of invoices.",
-    "metadata": {
-      "type": "column",
-      "schema": "public",
-      "table_name": "invoices",
-      "column_name": "payment_received",
-      "full_name": "public.invoices.payment_received",
-      "data_type": "boolean",
-      "is_primary_key": false,
-      "is_foreign_key": false,
-      "foreign_table": null,
-      "foreign_column": null,
-      "ordinal_position": 10
-    }
-  },
-  {
     "id": "column:public.leads.lead_id",
-    "text": "leads.lead_id (identifier): unique ID referencing another entity.",
+    "text": "leads.lead_id (identifier): 'Unique identifier automatically generated for each lead. Used in follow-ups, scoring, and pipeline tracking.'",
     "metadata": {
       "type": "column",
       "schema": "public",
@@ -715,7 +273,7 @@
   },
   {
     "id": "column:public.leads.lead_name",
-    "text": "leads.lead_name (string): name field.",
+    "text": "leads.lead_name (string): 'Name of the prospect or organization making an inquiry. Helps sales teams identify and qualify the lead.'",
     "metadata": {
       "type": "column",
       "schema": "public",
@@ -731,25 +289,8 @@
     }
   },
   {
-    "id": "column:public.leads.company",
-    "text": "leads.company (character varying): attribute of leads.",
-    "metadata": {
-      "type": "column",
-      "schema": "public",
-      "table_name": "leads",
-      "column_name": "company",
-      "full_name": "public.leads.company",
-      "data_type": "character varying",
-      "is_primary_key": false,
-      "is_foreign_key": false,
-      "foreign_table": null,
-      "foreign_column": null,
-      "ordinal_position": 3
-    }
-  },
-  {
     "id": "column:public.leads.email",
-    "text": "leads.email (character varying): attribute of leads.",
+    "text": "leads.email (character varying): 'Email address provided by the lead. Used to initiate communication and detect duplicates.'",
     "metadata": {
       "type": "column",
       "schema": "public",
@@ -761,46 +302,12 @@
       "is_foreign_key": false,
       "foreign_table": null,
       "foreign_column": null,
-      "ordinal_position": 4
-    }
-  },
-  {
-    "id": "column:public.leads.phone",
-    "text": "leads.phone (character varying): attribute of leads.",
-    "metadata": {
-      "type": "column",
-      "schema": "public",
-      "table_name": "leads",
-      "column_name": "phone",
-      "full_name": "public.leads.phone",
-      "data_type": "character varying",
-      "is_primary_key": false,
-      "is_foreign_key": false,
-      "foreign_table": null,
-      "foreign_column": null,
-      "ordinal_position": 5
-    }
-  },
-  {
-    "id": "column:public.leads.status",
-    "text": "leads.status (string): status field.",
-    "metadata": {
-      "type": "column",
-      "schema": "public",
-      "table_name": "leads",
-      "column_name": "status",
-      "full_name": "public.leads.status",
-      "data_type": "character varying",
-      "is_primary_key": false,
-      "is_foreign_key": false,
-      "foreign_table": null,
-      "foreign_column": null,
-      "ordinal_position": 6
+      "ordinal_position": 3
     }
   },
   {
     "id": "column:public.leads.source",
-    "text": "leads.source (character varying): attribute of leads.",
+    "text": "leads.source (character varying): 'Indicates how the lead entered the system (e.g., Website, Event, Referral). Used for marketing attribution.'",
     "metadata": {
       "type": "column",
       "schema": "public",
@@ -812,29 +319,12 @@
       "is_foreign_key": false,
       "foreign_table": null,
       "foreign_column": null,
-      "ordinal_position": 7
-    }
-  },
-  {
-    "id": "column:public.leads.assigned_to",
-    "text": "leads.assigned_to (integer): attribute of leads.",
-    "metadata": {
-      "type": "column",
-      "schema": "public",
-      "table_name": "leads",
-      "column_name": "assigned_to",
-      "full_name": "public.leads.assigned_to",
-      "data_type": "integer",
-      "is_primary_key": false,
-      "is_foreign_key": true,
-      "foreign_table": "public.employees",
-      "foreign_column": "employee_id",
-      "ordinal_position": 8
+      "ordinal_position": 4
     }
   },
   {
     "id": "column:public.leads.created_on",
-    "text": "leads.created_on (date): attribute of leads.",
+    "text": "leads.created_on (date): 'Timestamp capturing when the lead was created. Helps with aging analysis and SLA enforcement.'",
     "metadata": {
       "type": "column",
       "schema": "public",
@@ -846,539 +336,12 @@
       "is_foreign_key": false,
       "foreign_table": null,
       "foreign_column": null,
-      "ordinal_position": 9
-    }
-  },
-  {
-    "id": "column:public.leads.converted",
-    "text": "leads.converted (boolean): attribute of leads.",
-    "metadata": {
-      "type": "column",
-      "schema": "public",
-      "table_name": "leads",
-      "column_name": "converted",
-      "full_name": "public.leads.converted",
-      "data_type": "boolean",
-      "is_primary_key": false,
-      "is_foreign_key": false,
-      "foreign_table": null,
-      "foreign_column": null,
-      "ordinal_position": 10
-    }
-  },
-  {
-    "id": "column:public.marketing_campaigns.campaign_id",
-    "text": "marketing_campaigns.campaign_id (identifier): unique ID referencing another entity.",
-    "metadata": {
-      "type": "column",
-      "schema": "public",
-      "table_name": "marketing_campaigns",
-      "column_name": "campaign_id",
-      "full_name": "public.marketing_campaigns.campaign_id",
-      "data_type": "integer",
-      "is_primary_key": true,
-      "is_foreign_key": false,
-      "foreign_table": null,
-      "foreign_column": null,
-      "ordinal_position": 1
-    }
-  },
-  {
-    "id": "column:public.marketing_campaigns.campaign_name",
-    "text": "marketing_campaigns.campaign_name (string): name field.",
-    "metadata": {
-      "type": "column",
-      "schema": "public",
-      "table_name": "marketing_campaigns",
-      "column_name": "campaign_name",
-      "full_name": "public.marketing_campaigns.campaign_name",
-      "data_type": "character varying",
-      "is_primary_key": false,
-      "is_foreign_key": false,
-      "foreign_table": null,
-      "foreign_column": null,
-      "ordinal_position": 2
-    }
-  },
-  {
-    "id": "column:public.marketing_campaigns.start_date",
-    "text": "marketing_campaigns.start_date (date): date associated with the record.",
-    "metadata": {
-      "type": "column",
-      "schema": "public",
-      "table_name": "marketing_campaigns",
-      "column_name": "start_date",
-      "full_name": "public.marketing_campaigns.start_date",
-      "data_type": "date",
-      "is_primary_key": false,
-      "is_foreign_key": false,
-      "foreign_table": null,
-      "foreign_column": null,
-      "ordinal_position": 3
-    }
-  },
-  {
-    "id": "column:public.marketing_campaigns.end_date",
-    "text": "marketing_campaigns.end_date (date): date associated with the record.",
-    "metadata": {
-      "type": "column",
-      "schema": "public",
-      "table_name": "marketing_campaigns",
-      "column_name": "end_date",
-      "full_name": "public.marketing_campaigns.end_date",
-      "data_type": "date",
-      "is_primary_key": false,
-      "is_foreign_key": false,
-      "foreign_table": null,
-      "foreign_column": null,
-      "ordinal_position": 4
-    }
-  },
-  {
-    "id": "column:public.marketing_campaigns.budget",
-    "text": "marketing_campaigns.budget (numeric): attribute of marketing_campaigns.",
-    "metadata": {
-      "type": "column",
-      "schema": "public",
-      "table_name": "marketing_campaigns",
-      "column_name": "budget",
-      "full_name": "public.marketing_campaigns.budget",
-      "data_type": "numeric",
-      "is_primary_key": false,
-      "is_foreign_key": false,
-      "foreign_table": null,
-      "foreign_column": null,
       "ordinal_position": 5
-    }
-  },
-  {
-    "id": "column:public.marketing_campaigns.channel",
-    "text": "marketing_campaigns.channel (character varying): attribute of marketing_campaigns.",
-    "metadata": {
-      "type": "column",
-      "schema": "public",
-      "table_name": "marketing_campaigns",
-      "column_name": "channel",
-      "full_name": "public.marketing_campaigns.channel",
-      "data_type": "character varying",
-      "is_primary_key": false,
-      "is_foreign_key": false,
-      "foreign_table": null,
-      "foreign_column": null,
-      "ordinal_position": 6
-    }
-  },
-  {
-    "id": "column:public.marketing_campaigns.target_audience",
-    "text": "marketing_campaigns.target_audience (character varying): attribute of marketing_campaigns.",
-    "metadata": {
-      "type": "column",
-      "schema": "public",
-      "table_name": "marketing_campaigns",
-      "column_name": "target_audience",
-      "full_name": "public.marketing_campaigns.target_audience",
-      "data_type": "character varying",
-      "is_primary_key": false,
-      "is_foreign_key": false,
-      "foreign_table": null,
-      "foreign_column": null,
-      "ordinal_position": 7
-    }
-  },
-  {
-    "id": "column:public.marketing_campaigns.conversion_rate",
-    "text": "marketing_campaigns.conversion_rate (numeric): attribute of marketing_campaigns.",
-    "metadata": {
-      "type": "column",
-      "schema": "public",
-      "table_name": "marketing_campaigns",
-      "column_name": "conversion_rate",
-      "full_name": "public.marketing_campaigns.conversion_rate",
-      "data_type": "numeric",
-      "is_primary_key": false,
-      "is_foreign_key": false,
-      "foreign_table": null,
-      "foreign_column": null,
-      "ordinal_position": 8
-    }
-  },
-  {
-    "id": "column:public.marketing_campaigns.responsible_employee",
-    "text": "marketing_campaigns.responsible_employee (integer): attribute of marketing_campaigns.",
-    "metadata": {
-      "type": "column",
-      "schema": "public",
-      "table_name": "marketing_campaigns",
-      "column_name": "responsible_employee",
-      "full_name": "public.marketing_campaigns.responsible_employee",
-      "data_type": "integer",
-      "is_primary_key": false,
-      "is_foreign_key": true,
-      "foreign_table": "public.employees",
-      "foreign_column": "employee_id",
-      "ordinal_position": 9
-    }
-  },
-  {
-    "id": "column:public.marketing_campaigns.active",
-    "text": "marketing_campaigns.active (boolean): attribute of marketing_campaigns.",
-    "metadata": {
-      "type": "column",
-      "schema": "public",
-      "table_name": "marketing_campaigns",
-      "column_name": "active",
-      "full_name": "public.marketing_campaigns.active",
-      "data_type": "boolean",
-      "is_primary_key": false,
-      "is_foreign_key": false,
-      "foreign_table": null,
-      "foreign_column": null,
-      "ordinal_position": 10
-    }
-  },
-  {
-    "id": "column:public.opportunities.opportunity_id",
-    "text": "opportunities.opportunity_id (identifier): unique ID referencing another entity.",
-    "metadata": {
-      "type": "column",
-      "schema": "public",
-      "table_name": "opportunities",
-      "column_name": "opportunity_id",
-      "full_name": "public.opportunities.opportunity_id",
-      "data_type": "integer",
-      "is_primary_key": true,
-      "is_foreign_key": false,
-      "foreign_table": null,
-      "foreign_column": null,
-      "ordinal_position": 1
-    }
-  },
-  {
-    "id": "column:public.opportunities.lead_id",
-    "text": "opportunities.lead_id (identifier): unique ID referencing another entity.",
-    "metadata": {
-      "type": "column",
-      "schema": "public",
-      "table_name": "opportunities",
-      "column_name": "lead_id",
-      "full_name": "public.opportunities.lead_id",
-      "data_type": "integer",
-      "is_primary_key": false,
-      "is_foreign_key": true,
-      "foreign_table": "public.leads",
-      "foreign_column": "lead_id",
-      "ordinal_position": 2
-    }
-  },
-  {
-    "id": "column:public.opportunities.product_id",
-    "text": "opportunities.product_id (identifier): unique ID referencing another entity.",
-    "metadata": {
-      "type": "column",
-      "schema": "public",
-      "table_name": "opportunities",
-      "column_name": "product_id",
-      "full_name": "public.opportunities.product_id",
-      "data_type": "integer",
-      "is_primary_key": false,
-      "is_foreign_key": true,
-      "foreign_table": "public.products",
-      "foreign_column": "product_id",
-      "ordinal_position": 3
-    }
-  },
-  {
-    "id": "column:public.opportunities.estimated_value",
-    "text": "opportunities.estimated_value (numeric): attribute of opportunities.",
-    "metadata": {
-      "type": "column",
-      "schema": "public",
-      "table_name": "opportunities",
-      "column_name": "estimated_value",
-      "full_name": "public.opportunities.estimated_value",
-      "data_type": "numeric",
-      "is_primary_key": false,
-      "is_foreign_key": false,
-      "foreign_table": null,
-      "foreign_column": null,
-      "ordinal_position": 4
-    }
-  },
-  {
-    "id": "column:public.opportunities.stage",
-    "text": "opportunities.stage (character varying): attribute of opportunities.",
-    "metadata": {
-      "type": "column",
-      "schema": "public",
-      "table_name": "opportunities",
-      "column_name": "stage",
-      "full_name": "public.opportunities.stage",
-      "data_type": "character varying",
-      "is_primary_key": false,
-      "is_foreign_key": false,
-      "foreign_table": null,
-      "foreign_column": null,
-      "ordinal_position": 5
-    }
-  },
-  {
-    "id": "column:public.opportunities.expected_close",
-    "text": "opportunities.expected_close (date): attribute of opportunities.",
-    "metadata": {
-      "type": "column",
-      "schema": "public",
-      "table_name": "opportunities",
-      "column_name": "expected_close",
-      "full_name": "public.opportunities.expected_close",
-      "data_type": "date",
-      "is_primary_key": false,
-      "is_foreign_key": false,
-      "foreign_table": null,
-      "foreign_column": null,
-      "ordinal_position": 6
-    }
-  },
-  {
-    "id": "column:public.opportunities.assigned_to",
-    "text": "opportunities.assigned_to (integer): attribute of opportunities.",
-    "metadata": {
-      "type": "column",
-      "schema": "public",
-      "table_name": "opportunities",
-      "column_name": "assigned_to",
-      "full_name": "public.opportunities.assigned_to",
-      "data_type": "integer",
-      "is_primary_key": false,
-      "is_foreign_key": true,
-      "foreign_table": "public.employees",
-      "foreign_column": "employee_id",
-      "ordinal_position": 7
-    }
-  },
-  {
-    "id": "column:public.opportunities.created_on",
-    "text": "opportunities.created_on (date): attribute of opportunities.",
-    "metadata": {
-      "type": "column",
-      "schema": "public",
-      "table_name": "opportunities",
-      "column_name": "created_on",
-      "full_name": "public.opportunities.created_on",
-      "data_type": "date",
-      "is_primary_key": false,
-      "is_foreign_key": false,
-      "foreign_table": null,
-      "foreign_column": null,
-      "ordinal_position": 8
-    }
-  },
-  {
-    "id": "column:public.opportunities.notes",
-    "text": "opportunities.notes (character varying): attribute of opportunities.",
-    "metadata": {
-      "type": "column",
-      "schema": "public",
-      "table_name": "opportunities",
-      "column_name": "notes",
-      "full_name": "public.opportunities.notes",
-      "data_type": "character varying",
-      "is_primary_key": false,
-      "is_foreign_key": false,
-      "foreign_table": null,
-      "foreign_column": null,
-      "ordinal_position": 9
-    }
-  },
-  {
-    "id": "column:public.opportunities.won",
-    "text": "opportunities.won (boolean): attribute of opportunities.",
-    "metadata": {
-      "type": "column",
-      "schema": "public",
-      "table_name": "opportunities",
-      "column_name": "won",
-      "full_name": "public.opportunities.won",
-      "data_type": "boolean",
-      "is_primary_key": false,
-      "is_foreign_key": false,
-      "foreign_table": null,
-      "foreign_column": null,
-      "ordinal_position": 10
-    }
-  },
-  {
-    "id": "column:public.products.product_id",
-    "text": "products.product_id (identifier): unique ID referencing another entity.",
-    "metadata": {
-      "type": "column",
-      "schema": "public",
-      "table_name": "products",
-      "column_name": "product_id",
-      "full_name": "public.products.product_id",
-      "data_type": "integer",
-      "is_primary_key": true,
-      "is_foreign_key": false,
-      "foreign_table": null,
-      "foreign_column": null,
-      "ordinal_position": 1
-    }
-  },
-  {
-    "id": "column:public.products.product_name",
-    "text": "products.product_name (character varying): attribute of products.",
-    "metadata": {
-      "type": "column",
-      "schema": "public",
-      "table_name": "products",
-      "column_name": "product_name",
-      "full_name": "public.products.product_name",
-      "data_type": "character varying",
-      "is_primary_key": false,
-      "is_foreign_key": false,
-      "foreign_table": null,
-      "foreign_column": null,
-      "ordinal_position": 2
-    }
-  },
-  {
-    "id": "column:public.products.sku",
-    "text": "products.sku (character varying): attribute of products.",
-    "metadata": {
-      "type": "column",
-      "schema": "public",
-      "table_name": "products",
-      "column_name": "sku",
-      "full_name": "public.products.sku",
-      "data_type": "character varying",
-      "is_primary_key": false,
-      "is_foreign_key": false,
-      "foreign_table": null,
-      "foreign_column": null,
-      "ordinal_position": 3
-    }
-  },
-  {
-    "id": "column:public.products.description",
-    "text": "products.description (character varying): attribute of products.",
-    "metadata": {
-      "type": "column",
-      "schema": "public",
-      "table_name": "products",
-      "column_name": "description",
-      "full_name": "public.products.description",
-      "data_type": "character varying",
-      "is_primary_key": false,
-      "is_foreign_key": false,
-      "foreign_table": null,
-      "foreign_column": null,
-      "ordinal_position": 4
-    }
-  },
-  {
-    "id": "column:public.products.category",
-    "text": "products.category (character varying): attribute of products.",
-    "metadata": {
-      "type": "column",
-      "schema": "public",
-      "table_name": "products",
-      "column_name": "category",
-      "full_name": "public.products.category",
-      "data_type": "character varying",
-      "is_primary_key": false,
-      "is_foreign_key": false,
-      "foreign_table": null,
-      "foreign_column": null,
-      "ordinal_position": 5
-    }
-  },
-  {
-    "id": "column:public.products.unit_price",
-    "text": "products.unit_price (numeric): numeric or monetary amount.",
-    "metadata": {
-      "type": "column",
-      "schema": "public",
-      "table_name": "products",
-      "column_name": "unit_price",
-      "full_name": "public.products.unit_price",
-      "data_type": "numeric",
-      "is_primary_key": false,
-      "is_foreign_key": false,
-      "foreign_table": null,
-      "foreign_column": null,
-      "ordinal_position": 6
-    }
-  },
-  {
-    "id": "column:public.products.supplier_id",
-    "text": "products.supplier_id (identifier): unique ID referencing another entity.",
-    "metadata": {
-      "type": "column",
-      "schema": "public",
-      "table_name": "products",
-      "column_name": "supplier_id",
-      "full_name": "public.products.supplier_id",
-      "data_type": "integer",
-      "is_primary_key": false,
-      "is_foreign_key": true,
-      "foreign_table": "public.suppliers",
-      "foreign_column": "supplier_id",
-      "ordinal_position": 7
-    }
-  },
-  {
-    "id": "column:public.products.stock_quantity",
-    "text": "products.stock_quantity (integer): attribute of products.",
-    "metadata": {
-      "type": "column",
-      "schema": "public",
-      "table_name": "products",
-      "column_name": "stock_quantity",
-      "full_name": "public.products.stock_quantity",
-      "data_type": "integer",
-      "is_primary_key": false,
-      "is_foreign_key": false,
-      "foreign_table": null,
-      "foreign_column": null,
-      "ordinal_position": 8
-    }
-  },
-  {
-    "id": "column:public.products.reorder_level",
-    "text": "products.reorder_level (integer): attribute of products.",
-    "metadata": {
-      "type": "column",
-      "schema": "public",
-      "table_name": "products",
-      "column_name": "reorder_level",
-      "full_name": "public.products.reorder_level",
-      "data_type": "integer",
-      "is_primary_key": false,
-      "is_foreign_key": false,
-      "foreign_table": null,
-      "foreign_column": null,
-      "ordinal_position": 9
-    }
-  },
-  {
-    "id": "column:public.products.discontinued",
-    "text": "products.discontinued (boolean): attribute of products.",
-    "metadata": {
-      "type": "column",
-      "schema": "public",
-      "table_name": "products",
-      "column_name": "discontinued",
-      "full_name": "public.products.discontinued",
-      "data_type": "boolean",
-      "is_primary_key": false,
-      "is_foreign_key": false,
-      "foreign_table": null,
-      "foreign_column": null,
-      "ordinal_position": 10
     }
   },
   {
     "id": "column:public.sales.sale_id",
-    "text": "sales.sale_id (identifier): unique ID referencing another entity.",
+    "text": "sales.sale_id (identifier): 'Unique ID representing each sale. Acts as the anchor for revenue and invoice mapping.'",
     "metadata": {
       "type": "column",
       "schema": "public",
@@ -1395,7 +358,7 @@
   },
   {
     "id": "column:public.sales.customer_id",
-    "text": "sales.customer_id (identifier): unique ID referencing another entity.",
+    "text": "sales.customer_id (identifier): 'Customer who completed the purchase. Enables full purchase history tracking and customer value analytics.'",
     "metadata": {
       "type": "column",
       "schema": "public",
@@ -1412,7 +375,7 @@
   },
   {
     "id": "column:public.sales.employee_id",
-    "text": "sales.employee_id (identifier): unique ID referencing another entity.",
+    "text": "sales.employee_id (identifier): 'Employee responsible for the sale. Provides attribution for performance ranking and incentives.'",
     "metadata": {
       "type": "column",
       "schema": "public",
@@ -1428,42 +391,8 @@
     }
   },
   {
-    "id": "column:public.sales.product_id",
-    "text": "sales.product_id (identifier): unique ID referencing another entity.",
-    "metadata": {
-      "type": "column",
-      "schema": "public",
-      "table_name": "sales",
-      "column_name": "product_id",
-      "full_name": "public.sales.product_id",
-      "data_type": "integer",
-      "is_primary_key": false,
-      "is_foreign_key": true,
-      "foreign_table": "public.products",
-      "foreign_column": "product_id",
-      "ordinal_position": 4
-    }
-  },
-  {
-    "id": "column:public.sales.quantity",
-    "text": "sales.quantity (integer): attribute of sales.",
-    "metadata": {
-      "type": "column",
-      "schema": "public",
-      "table_name": "sales",
-      "column_name": "quantity",
-      "full_name": "public.sales.quantity",
-      "data_type": "integer",
-      "is_primary_key": false,
-      "is_foreign_key": false,
-      "foreign_table": null,
-      "foreign_column": null,
-      "ordinal_position": 5
-    }
-  },
-  {
     "id": "column:public.sales.total_amount",
-    "text": "sales.total_amount (numeric): numeric or monetary amount.",
+    "text": "sales.total_amount (numeric): 'Total monetary value of the sale, including all purchased products or services. Used for revenue calculations.'",
     "metadata": {
       "type": "column",
       "schema": "public",
@@ -1475,12 +404,12 @@
       "is_foreign_key": false,
       "foreign_table": null,
       "foreign_column": null,
-      "ordinal_position": 6
+      "ordinal_position": 4
     }
   },
   {
     "id": "column:public.sales.sale_date",
-    "text": "sales.sale_date (date): date associated with the record.",
+    "text": "sales.sale_date (date): 'Date when the sale was completed. Supports trend analysis, seasonality checks, and cohort reporting.'",
     "metadata": {
       "type": "column",
       "schema": "public",
@@ -1492,245 +421,7 @@
       "is_foreign_key": false,
       "foreign_table": null,
       "foreign_column": null,
-      "ordinal_position": 7
-    }
-  },
-  {
-    "id": "column:public.sales.payment_method",
-    "text": "sales.payment_method (character varying): attribute of sales.",
-    "metadata": {
-      "type": "column",
-      "schema": "public",
-      "table_name": "sales",
-      "column_name": "payment_method",
-      "full_name": "public.sales.payment_method",
-      "data_type": "character varying",
-      "is_primary_key": false,
-      "is_foreign_key": false,
-      "foreign_table": null,
-      "foreign_column": null,
-      "ordinal_position": 8
-    }
-  },
-  {
-    "id": "column:public.sales.region",
-    "text": "sales.region (character varying): attribute of sales.",
-    "metadata": {
-      "type": "column",
-      "schema": "public",
-      "table_name": "sales",
-      "column_name": "region",
-      "full_name": "public.sales.region",
-      "data_type": "character varying",
-      "is_primary_key": false,
-      "is_foreign_key": false,
-      "foreign_table": null,
-      "foreign_column": null,
-      "ordinal_position": 9
-    }
-  },
-  {
-    "id": "column:public.sales.discount",
-    "text": "sales.discount (numeric): numeric or monetary amount.",
-    "metadata": {
-      "type": "column",
-      "schema": "public",
-      "table_name": "sales",
-      "column_name": "discount",
-      "full_name": "public.sales.discount",
-      "data_type": "numeric",
-      "is_primary_key": false,
-      "is_foreign_key": false,
-      "foreign_table": null,
-      "foreign_column": null,
-      "ordinal_position": 10
-    }
-  },
-  {
-    "id": "column:public.suppliers.supplier_id",
-    "text": "suppliers.supplier_id (identifier): unique ID referencing another entity.",
-    "metadata": {
-      "type": "column",
-      "schema": "public",
-      "table_name": "suppliers",
-      "column_name": "supplier_id",
-      "full_name": "public.suppliers.supplier_id",
-      "data_type": "integer",
-      "is_primary_key": true,
-      "is_foreign_key": false,
-      "foreign_table": null,
-      "foreign_column": null,
-      "ordinal_position": 1
-    }
-  },
-  {
-    "id": "column:public.suppliers.supplier_name",
-    "text": "suppliers.supplier_name (string): name field.",
-    "metadata": {
-      "type": "column",
-      "schema": "public",
-      "table_name": "suppliers",
-      "column_name": "supplier_name",
-      "full_name": "public.suppliers.supplier_name",
-      "data_type": "character varying",
-      "is_primary_key": false,
-      "is_foreign_key": false,
-      "foreign_table": null,
-      "foreign_column": null,
-      "ordinal_position": 2
-    }
-  },
-  {
-    "id": "column:public.suppliers.contact_person",
-    "text": "suppliers.contact_person (character varying): attribute of suppliers.",
-    "metadata": {
-      "type": "column",
-      "schema": "public",
-      "table_name": "suppliers",
-      "column_name": "contact_person",
-      "full_name": "public.suppliers.contact_person",
-      "data_type": "character varying",
-      "is_primary_key": false,
-      "is_foreign_key": false,
-      "foreign_table": null,
-      "foreign_column": null,
-      "ordinal_position": 3
-    }
-  },
-  {
-    "id": "column:public.suppliers.phone",
-    "text": "suppliers.phone (character varying): attribute of suppliers.",
-    "metadata": {
-      "type": "column",
-      "schema": "public",
-      "table_name": "suppliers",
-      "column_name": "phone",
-      "full_name": "public.suppliers.phone",
-      "data_type": "character varying",
-      "is_primary_key": false,
-      "is_foreign_key": false,
-      "foreign_table": null,
-      "foreign_column": null,
-      "ordinal_position": 4
-    }
-  },
-  {
-    "id": "column:public.suppliers.email",
-    "text": "suppliers.email (character varying): attribute of suppliers.",
-    "metadata": {
-      "type": "column",
-      "schema": "public",
-      "table_name": "suppliers",
-      "column_name": "email",
-      "full_name": "public.suppliers.email",
-      "data_type": "character varying",
-      "is_primary_key": false,
-      "is_foreign_key": false,
-      "foreign_table": null,
-      "foreign_column": null,
       "ordinal_position": 5
-    }
-  },
-  {
-    "id": "column:public.suppliers.address",
-    "text": "suppliers.address (character varying): attribute of suppliers.",
-    "metadata": {
-      "type": "column",
-      "schema": "public",
-      "table_name": "suppliers",
-      "column_name": "address",
-      "full_name": "public.suppliers.address",
-      "data_type": "character varying",
-      "is_primary_key": false,
-      "is_foreign_key": false,
-      "foreign_table": null,
-      "foreign_column": null,
-      "ordinal_position": 6
-    }
-  },
-  {
-    "id": "column:public.suppliers.city",
-    "text": "suppliers.city (character varying): attribute of suppliers.",
-    "metadata": {
-      "type": "column",
-      "schema": "public",
-      "table_name": "suppliers",
-      "column_name": "city",
-      "full_name": "public.suppliers.city",
-      "data_type": "character varying",
-      "is_primary_key": false,
-      "is_foreign_key": false,
-      "foreign_table": null,
-      "foreign_column": null,
-      "ordinal_position": 7
-    }
-  },
-  {
-    "id": "column:public.suppliers.country",
-    "text": "suppliers.country (character varying): attribute of suppliers.",
-    "metadata": {
-      "type": "column",
-      "schema": "public",
-      "table_name": "suppliers",
-      "column_name": "country",
-      "full_name": "public.suppliers.country",
-      "data_type": "character varying",
-      "is_primary_key": false,
-      "is_foreign_key": false,
-      "foreign_table": null,
-      "foreign_column": null,
-      "ordinal_position": 8
-    }
-  },
-  {
-    "id": "column:public.suppliers.rating",
-    "text": "suppliers.rating (numeric): attribute of suppliers.",
-    "metadata": {
-      "type": "column",
-      "schema": "public",
-      "table_name": "suppliers",
-      "column_name": "rating",
-      "full_name": "public.suppliers.rating",
-      "data_type": "numeric",
-      "is_primary_key": false,
-      "is_foreign_key": false,
-      "foreign_table": null,
-      "foreign_column": null,
-      "ordinal_position": 9
-    }
-  },
-  {
-    "id": "column:public.suppliers.payment_terms",
-    "text": "suppliers.payment_terms (character varying): attribute of suppliers.",
-    "metadata": {
-      "type": "column",
-      "schema": "public",
-      "table_name": "suppliers",
-      "column_name": "payment_terms",
-      "full_name": "public.suppliers.payment_terms",
-      "data_type": "character varying",
-      "is_primary_key": false,
-      "is_foreign_key": false,
-      "foreign_table": null,
-      "foreign_column": null,
-      "ordinal_position": 10
-    }
-  },
-  {
-    "id": "column:public.suppliers.active_since",
-    "text": "suppliers.active_since (date): attribute of suppliers.",
-    "metadata": {
-      "type": "column",
-      "schema": "public",
-      "table_name": "suppliers",
-      "column_name": "active_since",
-      "full_name": "public.suppliers.active_since",
-      "data_type": "date",
-      "is_primary_key": false,
-      "is_foreign_key": false,
-      "foreign_table": null,
-      "foreign_column": null,
-      "ordinal_position": 11
     }
   }
 ]

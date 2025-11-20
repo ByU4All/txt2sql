@@ -62,84 +62,14 @@
           "foreign_column": null
         },
         {
-          "name": "phone",
-          "description": "Enter column description here",
-          "data_type": "character varying",
-          "is_nullable": true,
-          "default_value": null,
-          "max_length": 50,
-          "numeric_precision": null,
-          "numeric_scale": null,
-          "is_primary_key": false,
-          "is_foreign_key": false,
-          "foreign_table": null,
-          "foreign_column": null
-        },
-        {
-          "name": "address",
-          "description": "Enter column description here",
-          "data_type": "character varying",
-          "is_nullable": true,
-          "default_value": null,
-          "max_length": 255,
-          "numeric_precision": null,
-          "numeric_scale": null,
-          "is_primary_key": false,
-          "is_foreign_key": false,
-          "foreign_table": null,
-          "foreign_column": null
-        },
-        {
-          "name": "city",
-          "description": "Enter column description here",
-          "data_type": "character varying",
-          "is_nullable": true,
-          "default_value": null,
-          "max_length": 100,
-          "numeric_precision": null,
-          "numeric_scale": null,
-          "is_primary_key": false,
-          "is_foreign_key": false,
-          "foreign_table": null,
-          "foreign_column": null
-        },
-        {
-          "name": "country",
-          "description": "Enter column description here",
-          "data_type": "character varying",
-          "is_nullable": true,
-          "default_value": null,
-          "max_length": 100,
-          "numeric_precision": null,
-          "numeric_scale": null,
-          "is_primary_key": false,
-          "is_foreign_key": false,
-          "foreign_table": null,
-          "foreign_column": null
-        },
-        {
-          "name": "signup_date",
+          "name": "created_on",
           "description": "Enter column description here",
           "data_type": "date",
           "is_nullable": true,
-          "default_value": null,
+          "default_value": "CURRENT_DATE",
           "max_length": null,
           "numeric_precision": null,
           "numeric_scale": null,
-          "is_primary_key": false,
-          "is_foreign_key": false,
-          "foreign_table": null,
-          "foreign_column": null
-        },
-        {
-          "name": "loyalty_points",
-          "description": "Enter column description here",
-          "data_type": "integer",
-          "is_nullable": true,
-          "default_value": null,
-          "max_length": null,
-          "numeric_precision": 32,
-          "numeric_scale": 0,
           "is_primary_key": false,
           "is_foreign_key": false,
           "foreign_table": null,
@@ -152,6 +82,14 @@
       "foreign_keys": [],
       "indexes": [
         {
+          "index_name": "customers_email_key",
+          "columns": [
+            "email"
+          ],
+          "is_unique": true,
+          "is_primary": false
+        },
+        {
           "index_name": "customers_pkey",
           "columns": [
             "customer_id"
@@ -161,7 +99,7 @@
         }
       ],
       "row_count": -1,
-      "description": null
+      "description": "Stores records for all customers in the CRM system. Includes identity fields, contact information, and account creation details.\nThis table is referenced by other modules such as sales and interactions, making it a central data entity."
     },
     "public.employees": {
       "name": "employees",
@@ -211,34 +149,6 @@
           "foreign_column": null
         },
         {
-          "name": "email",
-          "description": "Enter column description here",
-          "data_type": "character varying",
-          "is_nullable": true,
-          "default_value": null,
-          "max_length": 255,
-          "numeric_precision": null,
-          "numeric_scale": null,
-          "is_primary_key": false,
-          "is_foreign_key": false,
-          "foreign_table": null,
-          "foreign_column": null
-        },
-        {
-          "name": "phone",
-          "description": "Enter column description here",
-          "data_type": "character varying",
-          "is_nullable": true,
-          "default_value": null,
-          "max_length": 50,
-          "numeric_precision": null,
-          "numeric_scale": null,
-          "is_primary_key": false,
-          "is_foreign_key": false,
-          "foreign_table": null,
-          "foreign_column": null
-        },
-        {
           "name": "department",
           "description": "Enter column description here",
           "data_type": "character varying",
@@ -253,51 +163,9 @@
           "foreign_column": null
         },
         {
-          "name": "position",
-          "description": "Enter column description here",
-          "data_type": "character varying",
-          "is_nullable": true,
-          "default_value": null,
-          "max_length": 100,
-          "numeric_precision": null,
-          "numeric_scale": null,
-          "is_primary_key": false,
-          "is_foreign_key": false,
-          "foreign_table": null,
-          "foreign_column": null
-        },
-        {
-          "name": "hire_date",
+          "name": "hired_on",
           "description": "Enter column description here",
           "data_type": "date",
-          "is_nullable": true,
-          "default_value": null,
-          "max_length": null,
-          "numeric_precision": null,
-          "numeric_scale": null,
-          "is_primary_key": false,
-          "is_foreign_key": false,
-          "foreign_table": null,
-          "foreign_column": null
-        },
-        {
-          "name": "salary",
-          "description": "Enter column description here",
-          "data_type": "numeric",
-          "is_nullable": true,
-          "default_value": null,
-          "max_length": null,
-          "numeric_precision": 10,
-          "numeric_scale": 2,
-          "is_primary_key": false,
-          "is_foreign_key": false,
-          "foreign_table": null,
-          "foreign_column": null
-        },
-        {
-          "name": "is_active",
-          "description": "Enter column description here",
-          "data_type": "boolean",
           "is_nullable": true,
           "default_value": null,
           "max_length": null,
@@ -324,7 +192,7 @@
         }
       ],
       "row_count": -1,
-      "description": null
+      "description": "Stores information for all employees working across sales, support, and service functions.\nEmployee data is essential for assigning tasks, evaluating productivity, and linking customer-facing activities."
     },
     "public.interactions": {
       "name": "interactions",
@@ -388,96 +256,12 @@
           "foreign_column": null
         },
         {
-          "name": "channel",
-          "description": "Enter column description here",
-          "data_type": "character varying",
-          "is_nullable": true,
-          "default_value": null,
-          "max_length": 50,
-          "numeric_precision": null,
-          "numeric_scale": null,
-          "is_primary_key": false,
-          "is_foreign_key": false,
-          "foreign_table": null,
-          "foreign_column": null
-        },
-        {
           "name": "interaction_date",
           "description": "Enter column description here",
           "data_type": "date",
           "is_nullable": true,
           "default_value": null,
           "max_length": null,
-          "numeric_precision": null,
-          "numeric_scale": null,
-          "is_primary_key": false,
-          "is_foreign_key": false,
-          "foreign_table": null,
-          "foreign_column": null
-        },
-        {
-          "name": "notes",
-          "description": "Enter column description here",
-          "data_type": "character varying",
-          "is_nullable": true,
-          "default_value": null,
-          "max_length": 500,
-          "numeric_precision": null,
-          "numeric_scale": null,
-          "is_primary_key": false,
-          "is_foreign_key": false,
-          "foreign_table": null,
-          "foreign_column": null
-        },
-        {
-          "name": "follow_up_required",
-          "description": "Enter column description here",
-          "data_type": "boolean",
-          "is_nullable": true,
-          "default_value": null,
-          "max_length": null,
-          "numeric_precision": null,
-          "numeric_scale": null,
-          "is_primary_key": false,
-          "is_foreign_key": false,
-          "foreign_table": null,
-          "foreign_column": null
-        },
-        {
-          "name": "satisfaction_score",
-          "description": "Enter column description here",
-          "data_type": "integer",
-          "is_nullable": true,
-          "default_value": null,
-          "max_length": null,
-          "numeric_precision": 32,
-          "numeric_scale": 0,
-          "is_primary_key": false,
-          "is_foreign_key": false,
-          "foreign_table": null,
-          "foreign_column": null
-        },
-        {
-          "name": "duration_minutes",
-          "description": "Enter column description here",
-          "data_type": "integer",
-          "is_nullable": true,
-          "default_value": null,
-          "max_length": null,
-          "numeric_precision": 32,
-          "numeric_scale": 0,
-          "is_primary_key": false,
-          "is_foreign_key": false,
-          "foreign_table": null,
-          "foreign_column": null
-        },
-        {
-          "name": "outcome",
-          "description": "Enter column description here",
-          "data_type": "character varying",
-          "is_nullable": true,
-          "default_value": null,
-          "max_length": 100,
           "numeric_precision": null,
           "numeric_scale": null,
           "is_primary_key": false,
@@ -516,178 +300,7 @@
         }
       ],
       "row_count": -1,
-      "description": null
-    },
-    "public.invoices": {
-      "name": "invoices",
-      "schema": "public",
-      "table_type": "BASE TABLE",
-      "columns": [
-        {
-          "name": "invoice_id",
-          "description": "Enter column description here",
-          "data_type": "integer",
-          "is_nullable": false,
-          "default_value": "nextval('invoices_invoice_id_seq'::regclass)",
-          "max_length": null,
-          "numeric_precision": 32,
-          "numeric_scale": 0,
-          "is_primary_key": true,
-          "is_foreign_key": false,
-          "foreign_table": null,
-          "foreign_column": null
-        },
-        {
-          "name": "sale_id",
-          "description": "Enter column description here",
-          "data_type": "integer",
-          "is_nullable": true,
-          "default_value": null,
-          "max_length": null,
-          "numeric_precision": 32,
-          "numeric_scale": 0,
-          "is_primary_key": false,
-          "is_foreign_key": true,
-          "foreign_table": "public.sales",
-          "foreign_column": "sale_id"
-        },
-        {
-          "name": "invoice_number",
-          "description": "Enter column description here",
-          "data_type": "character varying",
-          "is_nullable": true,
-          "default_value": null,
-          "max_length": 50,
-          "numeric_precision": null,
-          "numeric_scale": null,
-          "is_primary_key": false,
-          "is_foreign_key": false,
-          "foreign_table": null,
-          "foreign_column": null
-        },
-        {
-          "name": "issue_date",
-          "description": "Enter column description here",
-          "data_type": "date",
-          "is_nullable": true,
-          "default_value": null,
-          "max_length": null,
-          "numeric_precision": null,
-          "numeric_scale": null,
-          "is_primary_key": false,
-          "is_foreign_key": false,
-          "foreign_table": null,
-          "foreign_column": null
-        },
-        {
-          "name": "due_date",
-          "description": "Enter column description here",
-          "data_type": "date",
-          "is_nullable": true,
-          "default_value": null,
-          "max_length": null,
-          "numeric_precision": null,
-          "numeric_scale": null,
-          "is_primary_key": false,
-          "is_foreign_key": false,
-          "foreign_table": null,
-          "foreign_column": null
-        },
-        {
-          "name": "total_amount",
-          "description": "Enter column description here",
-          "data_type": "numeric",
-          "is_nullable": true,
-          "default_value": null,
-          "max_length": null,
-          "numeric_precision": 12,
-          "numeric_scale": 2,
-          "is_primary_key": false,
-          "is_foreign_key": false,
-          "foreign_table": null,
-          "foreign_column": null
-        },
-        {
-          "name": "tax",
-          "description": "Enter column description here",
-          "data_type": "numeric",
-          "is_nullable": true,
-          "default_value": null,
-          "max_length": null,
-          "numeric_precision": 5,
-          "numeric_scale": 2,
-          "is_primary_key": false,
-          "is_foreign_key": false,
-          "foreign_table": null,
-          "foreign_column": null
-        },
-        {
-          "name": "status",
-          "description": "Enter column description here",
-          "data_type": "character varying",
-          "is_nullable": true,
-          "default_value": null,
-          "max_length": 50,
-          "numeric_precision": null,
-          "numeric_scale": null,
-          "is_primary_key": false,
-          "is_foreign_key": false,
-          "foreign_table": null,
-          "foreign_column": null
-        },
-        {
-          "name": "billing_address",
-          "description": "Enter column description here",
-          "data_type": "character varying",
-          "is_nullable": true,
-          "default_value": null,
-          "max_length": 255,
-          "numeric_precision": null,
-          "numeric_scale": null,
-          "is_primary_key": false,
-          "is_foreign_key": false,
-          "foreign_table": null,
-          "foreign_column": null
-        },
-        {
-          "name": "payment_received",
-          "description": "Enter column description here",
-          "data_type": "boolean",
-          "is_nullable": true,
-          "default_value": null,
-          "max_length": null,
-          "numeric_precision": null,
-          "numeric_scale": null,
-          "is_primary_key": false,
-          "is_foreign_key": false,
-          "foreign_table": null,
-          "foreign_column": null
-        }
-      ],
-      "primary_keys": [
-        "invoice_id"
-      ],
-      "foreign_keys": [
-        {
-          "constraint_name": "invoices_sale_id_fkey",
-          "column_name": "sale_id",
-          "foreign_table_schema": "public",
-          "foreign_table_name": "sales",
-          "foreign_column_name": "sale_id"
-        }
-      ],
-      "indexes": [
-        {
-          "index_name": "invoices_pkey",
-          "columns": [
-            "invoice_id"
-          ],
-          "is_unique": true,
-          "is_primary": true
-        }
-      ],
-      "row_count": -1,
-      "description": null
+      "description": "Tracks every interaction that takes place between customers and company staff. This includes calls, emails, chats, or in-person meetings.\nThese logs help monitor engagement frequency, service quality, and customer satisfaction trends."
     },
     "public.leads": {
       "name": "leads",
@@ -723,54 +336,12 @@
           "foreign_column": null
         },
         {
-          "name": "company",
-          "description": "Enter column description here",
-          "data_type": "character varying",
-          "is_nullable": true,
-          "default_value": null,
-          "max_length": 150,
-          "numeric_precision": null,
-          "numeric_scale": null,
-          "is_primary_key": false,
-          "is_foreign_key": false,
-          "foreign_table": null,
-          "foreign_column": null
-        },
-        {
           "name": "email",
           "description": "Enter column description here",
           "data_type": "character varying",
           "is_nullable": true,
           "default_value": null,
           "max_length": 255,
-          "numeric_precision": null,
-          "numeric_scale": null,
-          "is_primary_key": false,
-          "is_foreign_key": false,
-          "foreign_table": null,
-          "foreign_column": null
-        },
-        {
-          "name": "phone",
-          "description": "Enter column description here",
-          "data_type": "character varying",
-          "is_nullable": true,
-          "default_value": null,
-          "max_length": 50,
-          "numeric_precision": null,
-          "numeric_scale": null,
-          "is_primary_key": false,
-          "is_foreign_key": false,
-          "foreign_table": null,
-          "foreign_column": null
-        },
-        {
-          "name": "status",
-          "description": "Enter column description here",
-          "data_type": "character varying",
-          "is_nullable": true,
-          "default_value": null,
-          "max_length": 50,
           "numeric_precision": null,
           "numeric_scale": null,
           "is_primary_key": false,
@@ -793,39 +364,11 @@
           "foreign_column": null
         },
         {
-          "name": "assigned_to",
-          "description": "Enter column description here",
-          "data_type": "integer",
-          "is_nullable": true,
-          "default_value": null,
-          "max_length": null,
-          "numeric_precision": 32,
-          "numeric_scale": 0,
-          "is_primary_key": false,
-          "is_foreign_key": true,
-          "foreign_table": "public.employees",
-          "foreign_column": "employee_id"
-        },
-        {
           "name": "created_on",
           "description": "Enter column description here",
           "data_type": "date",
           "is_nullable": true,
-          "default_value": null,
-          "max_length": null,
-          "numeric_precision": null,
-          "numeric_scale": null,
-          "is_primary_key": false,
-          "is_foreign_key": false,
-          "foreign_table": null,
-          "foreign_column": null
-        },
-        {
-          "name": "converted",
-          "description": "Enter column description here",
-          "data_type": "boolean",
-          "is_nullable": true,
-          "default_value": null,
+          "default_value": "CURRENT_DATE",
           "max_length": null,
           "numeric_precision": null,
           "numeric_scale": null,
@@ -838,15 +381,7 @@
       "primary_keys": [
         "lead_id"
       ],
-      "foreign_keys": [
-        {
-          "constraint_name": "leads_assigned_to_fkey",
-          "column_name": "assigned_to",
-          "foreign_table_schema": "public",
-          "foreign_table_name": "employees",
-          "foreign_column_name": "employee_id"
-        }
-      ],
+      "foreign_keys": [],
       "indexes": [
         {
           "index_name": "leads_pkey",
@@ -858,534 +393,7 @@
         }
       ],
       "row_count": -1,
-      "description": null
-    },
-    "public.marketing_campaigns": {
-      "name": "marketing_campaigns",
-      "schema": "public",
-      "table_type": "BASE TABLE",
-      "columns": [
-        {
-          "name": "campaign_id",
-          "description": "Enter column description here",
-          "data_type": "integer",
-          "is_nullable": false,
-          "default_value": "nextval('marketing_campaigns_campaign_id_seq'::regclass)",
-          "max_length": null,
-          "numeric_precision": 32,
-          "numeric_scale": 0,
-          "is_primary_key": true,
-          "is_foreign_key": false,
-          "foreign_table": null,
-          "foreign_column": null
-        },
-        {
-          "name": "campaign_name",
-          "description": "Enter column description here",
-          "data_type": "character varying",
-          "is_nullable": true,
-          "default_value": null,
-          "max_length": 150,
-          "numeric_precision": null,
-          "numeric_scale": null,
-          "is_primary_key": false,
-          "is_foreign_key": false,
-          "foreign_table": null,
-          "foreign_column": null
-        },
-        {
-          "name": "start_date",
-          "description": "Enter column description here",
-          "data_type": "date",
-          "is_nullable": true,
-          "default_value": null,
-          "max_length": null,
-          "numeric_precision": null,
-          "numeric_scale": null,
-          "is_primary_key": false,
-          "is_foreign_key": false,
-          "foreign_table": null,
-          "foreign_column": null
-        },
-        {
-          "name": "end_date",
-          "description": "Enter column description here",
-          "data_type": "date",
-          "is_nullable": true,
-          "default_value": null,
-          "max_length": null,
-          "numeric_precision": null,
-          "numeric_scale": null,
-          "is_primary_key": false,
-          "is_foreign_key": false,
-          "foreign_table": null,
-          "foreign_column": null
-        },
-        {
-          "name": "budget",
-          "description": "Enter column description here",
-          "data_type": "numeric",
-          "is_nullable": true,
-          "default_value": null,
-          "max_length": null,
-          "numeric_precision": 12,
-          "numeric_scale": 2,
-          "is_primary_key": false,
-          "is_foreign_key": false,
-          "foreign_table": null,
-          "foreign_column": null
-        },
-        {
-          "name": "channel",
-          "description": "Enter column description here",
-          "data_type": "character varying",
-          "is_nullable": true,
-          "default_value": null,
-          "max_length": 100,
-          "numeric_precision": null,
-          "numeric_scale": null,
-          "is_primary_key": false,
-          "is_foreign_key": false,
-          "foreign_table": null,
-          "foreign_column": null
-        },
-        {
-          "name": "target_audience",
-          "description": "Enter column description here",
-          "data_type": "character varying",
-          "is_nullable": true,
-          "default_value": null,
-          "max_length": 255,
-          "numeric_precision": null,
-          "numeric_scale": null,
-          "is_primary_key": false,
-          "is_foreign_key": false,
-          "foreign_table": null,
-          "foreign_column": null
-        },
-        {
-          "name": "conversion_rate",
-          "description": "Enter column description here",
-          "data_type": "numeric",
-          "is_nullable": true,
-          "default_value": null,
-          "max_length": null,
-          "numeric_precision": 5,
-          "numeric_scale": 2,
-          "is_primary_key": false,
-          "is_foreign_key": false,
-          "foreign_table": null,
-          "foreign_column": null
-        },
-        {
-          "name": "responsible_employee",
-          "description": "Enter column description here",
-          "data_type": "integer",
-          "is_nullable": true,
-          "default_value": null,
-          "max_length": null,
-          "numeric_precision": 32,
-          "numeric_scale": 0,
-          "is_primary_key": false,
-          "is_foreign_key": true,
-          "foreign_table": "public.employees",
-          "foreign_column": "employee_id"
-        },
-        {
-          "name": "active",
-          "description": "Enter column description here",
-          "data_type": "boolean",
-          "is_nullable": true,
-          "default_value": null,
-          "max_length": null,
-          "numeric_precision": null,
-          "numeric_scale": null,
-          "is_primary_key": false,
-          "is_foreign_key": false,
-          "foreign_table": null,
-          "foreign_column": null
-        }
-      ],
-      "primary_keys": [
-        "campaign_id"
-      ],
-      "foreign_keys": [
-        {
-          "constraint_name": "marketing_campaigns_responsible_employee_fkey",
-          "column_name": "responsible_employee",
-          "foreign_table_schema": "public",
-          "foreign_table_name": "employees",
-          "foreign_column_name": "employee_id"
-        }
-      ],
-      "indexes": [
-        {
-          "index_name": "marketing_campaigns_pkey",
-          "columns": [
-            "campaign_id"
-          ],
-          "is_unique": true,
-          "is_primary": true
-        }
-      ],
-      "row_count": -1,
-      "description": null
-    },
-    "public.opportunities": {
-      "name": "opportunities",
-      "schema": "public",
-      "table_type": "BASE TABLE",
-      "columns": [
-        {
-          "name": "opportunity_id",
-          "description": "Enter column description here",
-          "data_type": "integer",
-          "is_nullable": false,
-          "default_value": "nextval('opportunities_opportunity_id_seq'::regclass)",
-          "max_length": null,
-          "numeric_precision": 32,
-          "numeric_scale": 0,
-          "is_primary_key": true,
-          "is_foreign_key": false,
-          "foreign_table": null,
-          "foreign_column": null
-        },
-        {
-          "name": "lead_id",
-          "description": "Enter column description here",
-          "data_type": "integer",
-          "is_nullable": true,
-          "default_value": null,
-          "max_length": null,
-          "numeric_precision": 32,
-          "numeric_scale": 0,
-          "is_primary_key": false,
-          "is_foreign_key": true,
-          "foreign_table": "public.leads",
-          "foreign_column": "lead_id"
-        },
-        {
-          "name": "product_id",
-          "description": "Enter column description here",
-          "data_type": "integer",
-          "is_nullable": true,
-          "default_value": null,
-          "max_length": null,
-          "numeric_precision": 32,
-          "numeric_scale": 0,
-          "is_primary_key": false,
-          "is_foreign_key": true,
-          "foreign_table": "public.products",
-          "foreign_column": "product_id"
-        },
-        {
-          "name": "estimated_value",
-          "description": "Enter column description here",
-          "data_type": "numeric",
-          "is_nullable": true,
-          "default_value": null,
-          "max_length": null,
-          "numeric_precision": 12,
-          "numeric_scale": 2,
-          "is_primary_key": false,
-          "is_foreign_key": false,
-          "foreign_table": null,
-          "foreign_column": null
-        },
-        {
-          "name": "stage",
-          "description": "Enter column description here",
-          "data_type": "character varying",
-          "is_nullable": true,
-          "default_value": null,
-          "max_length": 100,
-          "numeric_precision": null,
-          "numeric_scale": null,
-          "is_primary_key": false,
-          "is_foreign_key": false,
-          "foreign_table": null,
-          "foreign_column": null
-        },
-        {
-          "name": "expected_close",
-          "description": "Enter column description here",
-          "data_type": "date",
-          "is_nullable": true,
-          "default_value": null,
-          "max_length": null,
-          "numeric_precision": null,
-          "numeric_scale": null,
-          "is_primary_key": false,
-          "is_foreign_key": false,
-          "foreign_table": null,
-          "foreign_column": null
-        },
-        {
-          "name": "assigned_to",
-          "description": "Enter column description here",
-          "data_type": "integer",
-          "is_nullable": true,
-          "default_value": null,
-          "max_length": null,
-          "numeric_precision": 32,
-          "numeric_scale": 0,
-          "is_primary_key": false,
-          "is_foreign_key": true,
-          "foreign_table": "public.employees",
-          "foreign_column": "employee_id"
-        },
-        {
-          "name": "created_on",
-          "description": "Enter column description here",
-          "data_type": "date",
-          "is_nullable": true,
-          "default_value": null,
-          "max_length": null,
-          "numeric_precision": null,
-          "numeric_scale": null,
-          "is_primary_key": false,
-          "is_foreign_key": false,
-          "foreign_table": null,
-          "foreign_column": null
-        },
-        {
-          "name": "notes",
-          "description": "Enter column description here",
-          "data_type": "character varying",
-          "is_nullable": true,
-          "default_value": null,
-          "max_length": 500,
-          "numeric_precision": null,
-          "numeric_scale": null,
-          "is_primary_key": false,
-          "is_foreign_key": false,
-          "foreign_table": null,
-          "foreign_column": null
-        },
-        {
-          "name": "won",
-          "description": "Enter column description here",
-          "data_type": "boolean",
-          "is_nullable": true,
-          "default_value": null,
-          "max_length": null,
-          "numeric_precision": null,
-          "numeric_scale": null,
-          "is_primary_key": false,
-          "is_foreign_key": false,
-          "foreign_table": null,
-          "foreign_column": null
-        }
-      ],
-      "primary_keys": [
-        "opportunity_id"
-      ],
-      "foreign_keys": [
-        {
-          "constraint_name": "opportunities_lead_id_fkey",
-          "column_name": "lead_id",
-          "foreign_table_schema": "public",
-          "foreign_table_name": "leads",
-          "foreign_column_name": "lead_id"
-        },
-        {
-          "constraint_name": "opportunities_product_id_fkey",
-          "column_name": "product_id",
-          "foreign_table_schema": "public",
-          "foreign_table_name": "products",
-          "foreign_column_name": "product_id"
-        },
-        {
-          "constraint_name": "opportunities_assigned_to_fkey",
-          "column_name": "assigned_to",
-          "foreign_table_schema": "public",
-          "foreign_table_name": "employees",
-          "foreign_column_name": "employee_id"
-        }
-      ],
-      "indexes": [
-        {
-          "index_name": "opportunities_pkey",
-          "columns": [
-            "opportunity_id"
-          ],
-          "is_unique": true,
-          "is_primary": true
-        }
-      ],
-      "row_count": -1,
-      "description": null
-    },
-    "public.products": {
-      "name": "products",
-      "schema": "public",
-      "table_type": "BASE TABLE",
-      "columns": [
-        {
-          "name": "product_id",
-          "description": "Enter column description here",
-          "data_type": "integer",
-          "is_nullable": false,
-          "default_value": "nextval('products_product_id_seq'::regclass)",
-          "max_length": null,
-          "numeric_precision": 32,
-          "numeric_scale": 0,
-          "is_primary_key": true,
-          "is_foreign_key": false,
-          "foreign_table": null,
-          "foreign_column": null
-        },
-        {
-          "name": "product_name",
-          "description": "Enter column description here",
-          "data_type": "character varying",
-          "is_nullable": true,
-          "default_value": null,
-          "max_length": 150,
-          "numeric_precision": null,
-          "numeric_scale": null,
-          "is_primary_key": false,
-          "is_foreign_key": false,
-          "foreign_table": null,
-          "foreign_column": null
-        },
-        {
-          "name": "sku",
-          "description": "Enter column description here",
-          "data_type": "character varying",
-          "is_nullable": true,
-          "default_value": null,
-          "max_length": 50,
-          "numeric_precision": null,
-          "numeric_scale": null,
-          "is_primary_key": false,
-          "is_foreign_key": false,
-          "foreign_table": null,
-          "foreign_column": null
-        },
-        {
-          "name": "description",
-          "description": "Enter column description here",
-          "data_type": "character varying",
-          "is_nullable": true,
-          "default_value": null,
-          "max_length": 500,
-          "numeric_precision": null,
-          "numeric_scale": null,
-          "is_primary_key": false,
-          "is_foreign_key": false,
-          "foreign_table": null,
-          "foreign_column": null
-        },
-        {
-          "name": "category",
-          "description": "Enter column description here",
-          "data_type": "character varying",
-          "is_nullable": true,
-          "default_value": null,
-          "max_length": 100,
-          "numeric_precision": null,
-          "numeric_scale": null,
-          "is_primary_key": false,
-          "is_foreign_key": false,
-          "foreign_table": null,
-          "foreign_column": null
-        },
-        {
-          "name": "unit_price",
-          "description": "Enter column description here",
-          "data_type": "numeric",
-          "is_nullable": true,
-          "default_value": null,
-          "max_length": null,
-          "numeric_precision": 10,
-          "numeric_scale": 2,
-          "is_primary_key": false,
-          "is_foreign_key": false,
-          "foreign_table": null,
-          "foreign_column": null
-        },
-        {
-          "name": "supplier_id",
-          "description": "Enter column description here",
-          "data_type": "integer",
-          "is_nullable": true,
-          "default_value": null,
-          "max_length": null,
-          "numeric_precision": 32,
-          "numeric_scale": 0,
-          "is_primary_key": false,
-          "is_foreign_key": true,
-          "foreign_table": "public.suppliers",
-          "foreign_column": "supplier_id"
-        },
-        {
-          "name": "stock_quantity",
-          "description": "Enter column description here",
-          "data_type": "integer",
-          "is_nullable": true,
-          "default_value": null,
-          "max_length": null,
-          "numeric_precision": 32,
-          "numeric_scale": 0,
-          "is_primary_key": false,
-          "is_foreign_key": false,
-          "foreign_table": null,
-          "foreign_column": null
-        },
-        {
-          "name": "reorder_level",
-          "description": "Enter column description here",
-          "data_type": "integer",
-          "is_nullable": true,
-          "default_value": null,
-          "max_length": null,
-          "numeric_precision": 32,
-          "numeric_scale": 0,
-          "is_primary_key": false,
-          "is_foreign_key": false,
-          "foreign_table": null,
-          "foreign_column": null
-        },
-        {
-          "name": "discontinued",
-          "description": "Enter column description here",
-          "data_type": "boolean",
-          "is_nullable": true,
-          "default_value": null,
-          "max_length": null,
-          "numeric_precision": null,
-          "numeric_scale": null,
-          "is_primary_key": false,
-          "is_foreign_key": false,
-          "foreign_table": null,
-          "foreign_column": null
-        }
-      ],
-      "primary_keys": [
-        "product_id"
-      ],
-      "foreign_keys": [
-        {
-          "constraint_name": "products_supplier_id_fkey",
-          "column_name": "supplier_id",
-          "foreign_table_schema": "public",
-          "foreign_table_name": "suppliers",
-          "foreign_column_name": "supplier_id"
-        }
-      ],
-      "indexes": [
-        {
-          "index_name": "products_pkey",
-          "columns": [
-            "product_id"
-          ],
-          "is_unique": true,
-          "is_primary": true
-        }
-      ],
-      "row_count": -1,
-      "description": null
+      "description": "Captures preliminary records of potential customers obtained from campaigns, referrals, or website forms.\nThis table supports lead management workflows and feeds the opportunity creation process."
     },
     "public.sales": {
       "name": "sales",
@@ -1435,41 +443,13 @@
           "foreign_column": "employee_id"
         },
         {
-          "name": "product_id",
-          "description": "Enter column description here",
-          "data_type": "integer",
-          "is_nullable": true,
-          "default_value": null,
-          "max_length": null,
-          "numeric_precision": 32,
-          "numeric_scale": 0,
-          "is_primary_key": false,
-          "is_foreign_key": true,
-          "foreign_table": "public.products",
-          "foreign_column": "product_id"
-        },
-        {
-          "name": "quantity",
-          "description": "Enter column description here",
-          "data_type": "integer",
-          "is_nullable": true,
-          "default_value": null,
-          "max_length": null,
-          "numeric_precision": 32,
-          "numeric_scale": 0,
-          "is_primary_key": false,
-          "is_foreign_key": false,
-          "foreign_table": null,
-          "foreign_column": null
-        },
-        {
           "name": "total_amount",
           "description": "Enter column description here",
           "data_type": "numeric",
           "is_nullable": true,
           "default_value": null,
           "max_length": null,
-          "numeric_precision": 12,
+          "numeric_precision": 10,
           "numeric_scale": 2,
           "is_primary_key": false,
           "is_foreign_key": false,
@@ -1485,48 +465,6 @@
           "max_length": null,
           "numeric_precision": null,
           "numeric_scale": null,
-          "is_primary_key": false,
-          "is_foreign_key": false,
-          "foreign_table": null,
-          "foreign_column": null
-        },
-        {
-          "name": "payment_method",
-          "description": "Enter column description here",
-          "data_type": "character varying",
-          "is_nullable": true,
-          "default_value": null,
-          "max_length": 50,
-          "numeric_precision": null,
-          "numeric_scale": null,
-          "is_primary_key": false,
-          "is_foreign_key": false,
-          "foreign_table": null,
-          "foreign_column": null
-        },
-        {
-          "name": "region",
-          "description": "Enter column description here",
-          "data_type": "character varying",
-          "is_nullable": true,
-          "default_value": null,
-          "max_length": 100,
-          "numeric_precision": null,
-          "numeric_scale": null,
-          "is_primary_key": false,
-          "is_foreign_key": false,
-          "foreign_table": null,
-          "foreign_column": null
-        },
-        {
-          "name": "discount",
-          "description": "Enter column description here",
-          "data_type": "numeric",
-          "is_nullable": true,
-          "default_value": null,
-          "max_length": null,
-          "numeric_precision": 5,
-          "numeric_scale": 2,
           "is_primary_key": false,
           "is_foreign_key": false,
           "foreign_table": null,
@@ -1550,13 +488,6 @@
           "foreign_table_schema": "public",
           "foreign_table_name": "employees",
           "foreign_column_name": "employee_id"
-        },
-        {
-          "constraint_name": "sales_product_id_fkey",
-          "column_name": "product_id",
-          "foreign_table_schema": "public",
-          "foreign_table_name": "products",
-          "foreign_column_name": "product_id"
         }
       ],
       "indexes": [
@@ -1570,269 +501,11 @@
         }
       ],
       "row_count": -1,
-      "description": null
-    },
-    "public.suppliers": {
-      "name": "suppliers",
-      "schema": "public",
-      "table_type": "BASE TABLE",
-      "columns": [
-        {
-          "name": "supplier_id",
-          "description": "Enter column description here",
-          "data_type": "integer",
-          "is_nullable": false,
-          "default_value": "nextval('suppliers_supplier_id_seq'::regclass)",
-          "max_length": null,
-          "numeric_precision": 32,
-          "numeric_scale": 0,
-          "is_primary_key": true,
-          "is_foreign_key": false,
-          "foreign_table": null,
-          "foreign_column": null
-        },
-        {
-          "name": "supplier_name",
-          "description": "Enter column description here",
-          "data_type": "character varying",
-          "is_nullable": true,
-          "default_value": null,
-          "max_length": 150,
-          "numeric_precision": null,
-          "numeric_scale": null,
-          "is_primary_key": false,
-          "is_foreign_key": false,
-          "foreign_table": null,
-          "foreign_column": null
-        },
-        {
-          "name": "contact_person",
-          "description": "Enter column description here",
-          "data_type": "character varying",
-          "is_nullable": true,
-          "default_value": null,
-          "max_length": 100,
-          "numeric_precision": null,
-          "numeric_scale": null,
-          "is_primary_key": false,
-          "is_foreign_key": false,
-          "foreign_table": null,
-          "foreign_column": null
-        },
-        {
-          "name": "phone",
-          "description": "Enter column description here",
-          "data_type": "character varying",
-          "is_nullable": true,
-          "default_value": null,
-          "max_length": 50,
-          "numeric_precision": null,
-          "numeric_scale": null,
-          "is_primary_key": false,
-          "is_foreign_key": false,
-          "foreign_table": null,
-          "foreign_column": null
-        },
-        {
-          "name": "email",
-          "description": "Enter column description here",
-          "data_type": "character varying",
-          "is_nullable": true,
-          "default_value": null,
-          "max_length": 255,
-          "numeric_precision": null,
-          "numeric_scale": null,
-          "is_primary_key": false,
-          "is_foreign_key": false,
-          "foreign_table": null,
-          "foreign_column": null
-        },
-        {
-          "name": "address",
-          "description": "Enter column description here",
-          "data_type": "character varying",
-          "is_nullable": true,
-          "default_value": null,
-          "max_length": 255,
-          "numeric_precision": null,
-          "numeric_scale": null,
-          "is_primary_key": false,
-          "is_foreign_key": false,
-          "foreign_table": null,
-          "foreign_column": null
-        },
-        {
-          "name": "city",
-          "description": "Enter column description here",
-          "data_type": "character varying",
-          "is_nullable": true,
-          "default_value": null,
-          "max_length": 100,
-          "numeric_precision": null,
-          "numeric_scale": null,
-          "is_primary_key": false,
-          "is_foreign_key": false,
-          "foreign_table": null,
-          "foreign_column": null
-        },
-        {
-          "name": "country",
-          "description": "Enter column description here",
-          "data_type": "character varying",
-          "is_nullable": true,
-          "default_value": null,
-          "max_length": 100,
-          "numeric_precision": null,
-          "numeric_scale": null,
-          "is_primary_key": false,
-          "is_foreign_key": false,
-          "foreign_table": null,
-          "foreign_column": null
-        },
-        {
-          "name": "rating",
-          "description": "Enter column description here",
-          "data_type": "numeric",
-          "is_nullable": true,
-          "default_value": null,
-          "max_length": null,
-          "numeric_precision": 3,
-          "numeric_scale": 2,
-          "is_primary_key": false,
-          "is_foreign_key": false,
-          "foreign_table": null,
-          "foreign_column": null
-        },
-        {
-          "name": "payment_terms",
-          "description": "Enter column description here",
-          "data_type": "character varying",
-          "is_nullable": true,
-          "default_value": null,
-          "max_length": 50,
-          "numeric_precision": null,
-          "numeric_scale": null,
-          "is_primary_key": false,
-          "is_foreign_key": false,
-          "foreign_table": null,
-          "foreign_column": null
-        },
-        {
-          "name": "active_since",
-          "description": "Enter column description here",
-          "data_type": "date",
-          "is_nullable": true,
-          "default_value": null,
-          "max_length": null,
-          "numeric_precision": null,
-          "numeric_scale": null,
-          "is_primary_key": false,
-          "is_foreign_key": false,
-          "foreign_table": null,
-          "foreign_column": null
-        }
-      ],
-      "primary_keys": [
-        "supplier_id"
-      ],
-      "foreign_keys": [],
-      "indexes": [
-        {
-          "index_name": "suppliers_pkey",
-          "columns": [
-            "supplier_id"
-          ],
-          "is_unique": true,
-          "is_primary": true
-        }
-      ],
-      "row_count": -1,
-      "description": null
+      "description": "Stores all finalized sales transactions performed by employees for customers.\nThis data is central to revenue tracking, performance dashboards, and financial forecasting."
     }
   },
   "views": {},
   "relationships": [
-    {
-      "source_schema": "public",
-      "source_table": "products",
-      "source_column": "supplier_id",
-      "target_schema": "public",
-      "target_table": "suppliers",
-      "target_column": "supplier_id",
-      "constraint_name": "products_supplier_id_fkey"
-    },
-    {
-      "source_schema": "public",
-      "source_table": "leads",
-      "source_column": "assigned_to",
-      "target_schema": "public",
-      "target_table": "employees",
-      "target_column": "employee_id",
-      "constraint_name": "leads_assigned_to_fkey"
-    },
-    {
-      "source_schema": "public",
-      "source_table": "opportunities",
-      "source_column": "lead_id",
-      "target_schema": "public",
-      "target_table": "leads",
-      "target_column": "lead_id",
-      "constraint_name": "opportunities_lead_id_fkey"
-    },
-    {
-      "source_schema": "public",
-      "source_table": "opportunities",
-      "source_column": "product_id",
-      "target_schema": "public",
-      "target_table": "products",
-      "target_column": "product_id",
-      "constraint_name": "opportunities_product_id_fkey"
-    },
-    {
-      "source_schema": "public",
-      "source_table": "opportunities",
-      "source_column": "assigned_to",
-      "target_schema": "public",
-      "target_table": "employees",
-      "target_column": "employee_id",
-      "constraint_name": "opportunities_assigned_to_fkey"
-    },
-    {
-      "source_schema": "public",
-      "source_table": "sales",
-      "source_column": "customer_id",
-      "target_schema": "public",
-      "target_table": "customers",
-      "target_column": "customer_id",
-      "constraint_name": "sales_customer_id_fkey"
-    },
-    {
-      "source_schema": "public",
-      "source_table": "sales",
-      "source_column": "employee_id",
-      "target_schema": "public",
-      "target_table": "employees",
-      "target_column": "employee_id",
-      "constraint_name": "sales_employee_id_fkey"
-    },
-    {
-      "source_schema": "public",
-      "source_table": "sales",
-      "source_column": "product_id",
-      "target_schema": "public",
-      "target_table": "products",
-      "target_column": "product_id",
-      "constraint_name": "sales_product_id_fkey"
-    },
-    {
-      "source_schema": "public",
-      "source_table": "invoices",
-      "source_column": "sale_id",
-      "target_schema": "public",
-      "target_table": "sales",
-      "target_column": "sale_id",
-      "constraint_name": "invoices_sale_id_fkey"
-    },
     {
       "source_schema": "public",
       "source_table": "interactions",
@@ -1853,14 +526,23 @@
     },
     {
       "source_schema": "public",
-      "source_table": "marketing_campaigns",
-      "source_column": "responsible_employee",
+      "source_table": "sales",
+      "source_column": "customer_id",
+      "target_schema": "public",
+      "target_table": "customers",
+      "target_column": "customer_id",
+      "constraint_name": "sales_customer_id_fkey"
+    },
+    {
+      "source_schema": "public",
+      "source_table": "sales",
+      "source_column": "employee_id",
       "target_schema": "public",
       "target_table": "employees",
       "target_column": "employee_id",
-      "constraint_name": "marketing_campaigns_responsible_employee_fkey"
+      "constraint_name": "sales_employee_id_fkey"
     }
   ],
-  "total_tables": 10,
+  "total_tables": 5,
   "total_views": 0
 }

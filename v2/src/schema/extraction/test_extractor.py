@@ -99,7 +99,7 @@ async def test_schema_extraction(save_json_path=None):
 async def main():
     """Main function."""
     print("🔌 Testing PostgreSQL Schema Extractor")
-    print("Database: postgresql://luke:***@localhost:5431/test_db")
+    print("Database: postgresql://luke:password@localhost:5431/test_db")
     print("-" * 60)
 
     try:
